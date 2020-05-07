@@ -4,18 +4,22 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField]
+    float _defualtSpeed;
+
+    [SerializeField]
+    float _mouseSpeed;
+
     Rigidbody rb;
-    float defualtSpeed = 5f;
-    float speed = 5;
-    float mouseSpeed = 20;
-    // Start is called before the first frame update
+    float speed;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        speed = _defualtSpeed;
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Vector3 dir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         dir.Normalize();
@@ -23,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
             transform.position += transform.right * dir.x * speed * Time.deltaTime;
         Vector3 rotation = transform.eulerAngles;
 
-        rotation.y += Input.GetAxis("Mouse X") * mouseSpeed * Time.deltaTime; // Standart Left-/Right Arrows and A & D Keys
+        rotation.y += Input.GetAxis("Mouse X") * _mouseSpeed * Time.deltaTime; // Standart Left-/Right Arrows and A & D Keys
 
         transform.eulerAngles = rotation;
     }
