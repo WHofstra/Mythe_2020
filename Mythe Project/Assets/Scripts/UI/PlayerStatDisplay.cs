@@ -7,13 +7,15 @@ public class PlayerStatDisplay : MonoBehaviour
 {
     Text text;
     PlayerHealth playerHealth;
-    RectTransform transform;
+    RectTransform rTransform;
 
     void Start()
     {
         text = GetComponent<Text>();
         playerHealth = FindObjectOfType<PlayerHealth>();
-        transform = GetComponent<RectTransform>();
+        rTransform = GetComponent<RectTransform>();
+
+        rTransform.transform.position = new Vector3(rTransform.sizeDelta.x / 2 + 40, rTransform.sizeDelta.y, 0);
 
         if (playerHealth != null)
         {

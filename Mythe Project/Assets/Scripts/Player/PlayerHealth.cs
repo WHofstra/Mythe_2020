@@ -35,7 +35,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (collision.gameObject.layer.Equals(9))
         {
-            hit = true;
+            hit = false;
             StartCoroutine(HitCoroutine());
         }
     }
