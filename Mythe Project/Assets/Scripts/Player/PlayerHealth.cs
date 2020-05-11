@@ -23,7 +23,7 @@ public class PlayerHealth : MonoBehaviour
 
     void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.layer.Equals(9))
+        if (collision.gameObject.layer.Equals(Constants.Layer.HAZARD))
         {
             GetHit(9);
             hit = true;
@@ -33,10 +33,9 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.layer.Equals(9))
+        if (collision.gameObject.layer.Equals(Constants.Layer.HAZARD))
         {
             hit = false;
-            StartCoroutine(HitCoroutine());
         }
     }
 
