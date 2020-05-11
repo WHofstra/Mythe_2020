@@ -15,7 +15,7 @@ public class PlayerStatDisplay : MonoBehaviour
         playerHealth = FindObjectOfType<PlayerHealth>();
         rTransform = GetComponent<RectTransform>();
 
-        rTransform.transform.position = new Vector3(rTransform.sizeDelta.x / 2 + 40, rTransform.sizeDelta.y, 0);
+        //rTransform.transform.position = new Vector3(rTransform.sizeDelta.x / 2 + 40, rTransform.sizeDelta.y, 0);
 
         if (playerHealth != null)
         {

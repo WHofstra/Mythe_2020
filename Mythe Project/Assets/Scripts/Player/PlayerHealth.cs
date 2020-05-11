@@ -46,7 +46,7 @@ public class PlayerHealth : MonoBehaviour
         hit = false;
     }
 
-    void GetHit(int damage)
+    public void GetHit(int damage)
     {
         if (!hit){
             if (currentHealth > damage) {
