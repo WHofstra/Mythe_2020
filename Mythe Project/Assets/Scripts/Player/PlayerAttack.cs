@@ -21,14 +21,13 @@ public class PlayerAttack : MonoBehaviour
 
     void MouseInput(RaycastHit hitObj, float distance)
     {
+        if (Input.GetMouseButtonDown(0)) {
+            anim.SetTrigger(Constants.AnimatorTriggerString.PUNCH);
+        }
+
         if (hitObj.collider != null)
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                anim.SetTrigger(Constants.AnimatorTriggerString.PUNCH);
-            }
-
-            if (Input.GetMouseButtonDown(1) && hitObj.collider.gameObject.layer.Equals(Constants.Layer.SOIL)) {
+            if (Input.GetMouseButtonDown(1)) {// && hitObj.collider.gameObject.layer.Equals(Constants.Layer.SOIL)) {
                 //Debug.Log("Summon vines!");
             }
         }
@@ -42,6 +41,7 @@ public class PlayerAttack : MonoBehaviour
 
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 30000, layerMask)) {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
+            Debug.Log(hit.collider.gameObject.name);
         }
 
         return hit;

@@ -82,9 +82,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetAxis(Constants.InputString.VERTICAL) > 0 && Input.GetAxis(Constants.InputString.HORIZONTAL) == 0 && onPlatform)
         {
             speed = _defualtSpeed + (Input.GetAxis(Constants.InputString.RUN) * 10);
-        }
-        else
-        {
+        } else {
             speed = _defualtSpeed;
         }
     }
