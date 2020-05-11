@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerAttack.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerHealth.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerPunchArea.cs" />
     <Compile Include="Assets\Scripts\UI\PlayerStatDisplay.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Users/waynt/OneDrive/Documents/Unity/2019.3.13f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

@@ -5,11 +5,13 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] float _hitDistance;
-    [SerializeField] float _strength;
+
+    Animator anim;
 
     void Start()
     {
         Cursor.visible = false;
+        anim = transform.GetChild(0).GetComponent<Animator>();
     }
 
     void Update()
@@ -21,19 +23,9 @@ public class PlayerAttack : MonoBehaviour
     {
         if (hitObj.collider != null)
         {
-            if (Input.GetMouseButtonDown(0) && hitObj.distance <= distance){
-                //Debug.Log("You're punching " + hitObj.collider.name + ".");
-
-                if (hitObj.collider.gameObject.GetComponent<PunchableObjectScript>() != null)
-                {
-                    float degToRad = Mathf.PI / 180;
-                    hitObj.collider.gameObject.GetComponent<PunchableObjectScript>().Punch(
-                    new Vector3(Mathf.Sin(transform.parent.transform.rotation.eulerAngles.y * degToRad), 0.25f,
-                                Mathf.Cos(transform.parent.transform.rotation.eulerAngles.y * degToRad)) * 10 * _strength);
-                }
-            }
-            else if (Input.GetMouseButtonDown(0)) {
-                //Debug.Log("You're too far away from " + hitObj.collider.name + " to hit it.");
+            if (Input.GetMouseButtonDown(0))
+            {
+                anim.SetTrigger(Constants.AnimatorTriggerString.PUNCH);
             }
 
             if (Input.GetMouseButtonDown(1) && hitObj.collider.gameObject.layer.Equals(Constants.Layer.SOIL)) {
