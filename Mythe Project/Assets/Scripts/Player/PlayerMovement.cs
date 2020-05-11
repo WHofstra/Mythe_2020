@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     Vector3 camRotation;
 
     float speed;
+    bool arrowKeysPressed;
     bool onPlatform;
 
     void Start()
@@ -33,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
         boxCollider = GetComponent<Collider>();
 
         speed = _defualtSpeed;
+        arrowKeysPressed = false;
         onPlatform = false;
     }
 
@@ -48,11 +50,25 @@ public class PlayerMovement : MonoBehaviour
 
     void InputKeysAndMouse()
     {
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) ||
+            Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A) ||
+            Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) ||
+            Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            arrowKeysPressed = true;
+        } else {
+            arrowKeysPressed = false;
+        }
+
         //Standard Arrow Keys and A-, W-, S- and D Keys
         dir = new Vector3(Input.GetAxis(InputStrings.HORIZONTAL), 0, Input.GetAxis(InputStrings.VERTICAL));
         dir.Normalize();
-        transform.position += transform.forward * dir.z * speed * Time.deltaTime;
-        transform.position += transform.right * dir.x * speed * Time.deltaTime;
+
+        if (arrowKeysPressed)
+        {
+            transform.position += transform.forward * dir.z * speed * Time.deltaTime;
+            transform.position += transform.right * dir.x * speed * Time.deltaTime;
+        }
 
         //Mouse Rotation
         rotation = transform.eulerAngles;
@@ -65,14 +81,19 @@ public class PlayerMovement : MonoBehaviour
         transform.GetChild(0).transform.eulerAngles = camRotation;
 
         //Spacebar
-        if (Input.GetKeyDown(KeyCode.Space) && onPlatform) {
+        if (Input.GetKeyDown(KeyCode.Space) && onPlatform)
+        {
             rb.AddForce(new Vector3(0, _jumpingHeight * 50, 0));
+            onPlatform = false; //To Prevent an Extra Leap in 1 Frame
         }
 
         //Left Shift Key or Right Shift Key
-        if (Input.GetAxis(InputStrings.VERTICAL) > 0 && Input.GetAxis(InputStrings.HORIZONTAL) == 0) {
+        if (Input.GetAxis(InputStrings.VERTICAL) > 0 && Input.GetAxis(InputStrings.HORIZONTAL) == 0 && onPlatform)
+        {
             speed = _defualtSpeed + (Input.GetAxis(InputStrings.RUN) * 10);
-        } else {
+        }
+        else
+        {
             speed = _defualtSpeed;
         }
     }
