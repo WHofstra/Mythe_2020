@@ -4,15 +4,6 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    class InputStrings
-    {
-        public const string HORIZONTAL = "Horizontal";
-        public const string VERTICAL   = "Vertical";
-        public const string MOUSE_X    = "Mouse X";
-        public const string MOUSE_Y    = "Mouse Y";
-        public const string RUN        = "Run";
-    }
-
     [SerializeField] float _defualtSpeed;
     [SerializeField] float _mouseSpeed;
     [SerializeField] float _jumpingHeight;
@@ -61,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Standard Arrow Keys and A-, W-, S- and D Keys
-        dir = new Vector3(Input.GetAxis(InputStrings.HORIZONTAL), 0, Input.GetAxis(InputStrings.VERTICAL));
+        dir = new Vector3(Input.GetAxis(Constants.InputString.HORIZONTAL), 0, Input.GetAxis(Constants.InputString.VERTICAL));
         dir.Normalize();
 
         if (arrowKeysPressed)
@@ -72,12 +63,12 @@ public class PlayerMovement : MonoBehaviour
 
         //Mouse Rotation
         rotation = transform.eulerAngles;
-        rotation.y += Input.GetAxis(InputStrings.MOUSE_X) * _mouseSpeed * Time.deltaTime;
+        rotation.y += Input.GetAxis(Constants.InputString.MOUSE_X) * _mouseSpeed * Time.deltaTime;
         transform.eulerAngles = rotation;
 
         //Make Sure the Camera is the Gameobject's First Child
         camRotation = transform.GetChild(0).transform.eulerAngles;
-        camRotation.x -= Input.GetAxis(InputStrings.MOUSE_Y) * _mouseSpeed * Time.deltaTime;
+        camRotation.x -= Input.GetAxis(Constants.InputString.MOUSE_Y) * _mouseSpeed * Time.deltaTime;
         transform.GetChild(0).transform.eulerAngles = camRotation;
 
         //Spacebar
@@ -88,12 +79,10 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Left Shift Key or Right Shift Key
-        if (Input.GetAxis(InputStrings.VERTICAL) > 0 && Input.GetAxis(InputStrings.HORIZONTAL) == 0 && onPlatform)
+        if (Input.GetAxis(Constants.InputString.VERTICAL) > 0 && Input.GetAxis(Constants.InputString.HORIZONTAL) == 0 && onPlatform)
         {
-            speed = _defualtSpeed + (Input.GetAxis(InputStrings.RUN) * 10);
-        }
-        else
-        {
+            speed = _defualtSpeed + (Input.GetAxis(Constants.InputString.RUN) * 10);
+        } else {
             speed = _defualtSpeed;
         }
     }
