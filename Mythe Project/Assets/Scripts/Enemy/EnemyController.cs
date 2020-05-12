@@ -11,6 +11,9 @@ public class EnemyController : MonoBehaviour
     PlayerHealth ph;
 
     NavMeshAgent agent;
+
+    bool attackable = true;
+    bool isAttacking = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,13 +31,30 @@ public class EnemyController : MonoBehaviour
     {
         if(Vector3.Distance(player,enemy) < 4f)
         {
+            isAttacking = true;
             agent.Stop();
             Debug.Log("Touch");
-            ph.GetHit(1);
+            if (attackable)
+            {
+                StartCoroutine(Attack());
+            }
         }
         else
         {
+            isAttacking = false;
             agent.Resume();
         }
+    }
+
+    IEnumerator Attack()
+    {
+        attackable = false;
+        yield return new WaitForSeconds(1f);
+        if (isAttacking)
+        {
+            ph.GetHit(10);
+            player.GetComponent<PlayerAnimator>().Play(Constants.AnimatorTriggerString.HIT);
+        }
+        attackable = true;
     }
 }
