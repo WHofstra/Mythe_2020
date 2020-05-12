@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerAttack : MonoBehaviour
 {
-    [SerializeField] float _hitDistance;
+    [SerializeField] float _strength;
+
+    public event Action<Vector3> ChangeCursorPosition;
+    public event Action TurnCursorOff;
 
     Animator anim;
 
@@ -16,19 +20,20 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
-        MouseInput(GetRayFront(Constants.Layer.PLAYER), _hitDistance);
+        MouseInput(GetRayFront(Constants.Layer.SOIL));
     }
 
-    void MouseInput(RaycastHit hitObj, float distance)
+    void MouseInput(RaycastHit hitObj)
     {
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0))
+        {
             anim.SetTrigger(Constants.AnimatorTriggerString.PUNCH);
         }
 
         if (hitObj.collider != null)
         {
-            if (Input.GetMouseButtonDown(1)) {// && hitObj.collider.gameObject.layer.Equals(Constants.Layer.SOIL)) {
-                //Debug.Log("Summon vines!");
+            if (Input.GetMouseButtonDown(1) && hitObj.collider.gameObject.layer.Equals(Constants.Layer.SOIL)) {
+                Debug.Log("Summon vines!");
             }
         }
     }
@@ -36,12 +41,19 @@ public class PlayerAttack : MonoBehaviour
     RaycastHit GetRayFront(int layer)
     {
         RaycastHit hit;
-        int layerMask = 0 << layer;
-        layerMask = ~layerMask;
+        int layerMask = 1 << layer;
 
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 30000, layerMask)) {
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 30000, layerMask))
+        {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
-            Debug.Log(hit.collider.gameObject.name);
+            ChangeCursorPosition(hit.point + new Vector3(0, 0.001f, 0));
+        }
+        else
+        {
+            TurnCursorOff();
+
+            //In Case of No Ray Drawing or No Visible Ray
+            //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 4, Color.red);
         }
 
         return hit;
