@@ -46,7 +46,7 @@ public class PlayerAttack : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 30000, layerMask))
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
-            ChangeCursorPosition(hit.point + new Vector3(0, 0.001f, 0));
+            ChangeCursorPosition(hit.point);
         }
         else
         {
