@@ -19,12 +19,14 @@ public class RockThrow : MonoBehaviour
         {
             LiftRocks();
             Debug.Log("lift");
+            gameObject.GetComponent<PlayerAnimator>().Play(Constants.AnimatorTriggerString.LIFT);
         }
         if (lifts != null)
         {
             
             if (Input.GetMouseButtonDown(1))
             {
+                gameObject.GetComponent<PlayerAnimator>().Play(Constants.AnimatorTriggerString.THROW_ROCK);
                 GetRayFront(Constants.Layer.PLAYER);
                 for (int i = 0; i < hitColliders.Length; i++)
                 {

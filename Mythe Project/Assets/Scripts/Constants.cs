@@ -28,5 +28,7 @@ public class Constants : MonoBehaviour
         public const string PUNCH       = "Punch";
         public const string HIT         = "Hit";
         public const string VINE_ATTACK = "Attack";
+        public const string LIFT        = "Lift";
+        public const string THROW_ROCK        = "Throw_Rocks";
     }
 }
