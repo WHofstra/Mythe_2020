@@ -8,6 +8,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] float _strength;
 
     public event Action<Vector3> ChangeCursorPosition;
+    public event Action<Vector3> VineAttack;
     public event Action TurnCursorOff;
 
     Animator anim;
@@ -33,7 +34,7 @@ public class PlayerAttack : MonoBehaviour
         if (hitObj.collider != null)
         {
             if (Input.GetMouseButtonDown(1) && hitObj.collider.gameObject.layer.Equals(Constants.Layer.SOIL)) {
-                Debug.Log("Summon vines!");
+                VineAttack(hitObj.point);
             }
         }
     }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VineAttack : MonoBehaviour
+public class VineCursor : MonoBehaviour
 {
     [SerializeField] float _rotationSpeed;
 
