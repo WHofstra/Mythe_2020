@@ -14,5 +14,9 @@ public class PunchableObjectScript : MonoBehaviour
     public void Punch(Vector3 force)
     {
         rb.AddForce(force);
+        if(gameObject.GetComponent<EnemyHealth>() != null)
+        {
+            gameObject.GetComponent<EnemyHealth>().Hit(10);
+        }
     }
 }
