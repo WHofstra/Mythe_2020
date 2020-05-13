@@ -23,6 +23,7 @@ public class Constants : MonoBehaviour
 
     public class AnimatorTriggerString
     {
-        public const string PUNCH = "Punch";
+        public const string PUNCH       = "Punch";
+        public const string VINE_ATTACK = "Attack";
     }
 }
