@@ -19,4 +19,9 @@ public class RockBehavior : MonoBehaviour
     {
         rock.lifts += GoUp;
     }
+    public void Shoot(Vector3 target)
+    {
+        Vector3 aim = transform.position - target;
+        GetComponent<Rigidbody>().AddForce(aim, ForceMode.Impulse);
+    }
 }
