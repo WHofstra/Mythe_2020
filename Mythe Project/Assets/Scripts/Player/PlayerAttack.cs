@@ -10,6 +10,7 @@ public class PlayerAttack : MonoBehaviour
 
     public event Action<RaycastHit> ChangeCursorPosition;
     public event Action<RaycastHit> VineAttack;
+    public event Action<string> ChangeWeapon;
     public event Action TurnCursorOff;
 
     public enum SecondaryWeapon
@@ -20,6 +21,7 @@ public class PlayerAttack : MonoBehaviour
     Animator anim;
     SecondaryWeapon currentWeapon;
 
+    Dictionary<SecondaryWeapon, string> weaponNames = new Dictionary<SecondaryWeapon, string>();
     int weaponAmount;
 
     public SecondaryWeapon CurrentWeapon { get { return currentWeapon; } }
@@ -28,8 +30,12 @@ public class PlayerAttack : MonoBehaviour
     {
         Cursor.visible = false;
         anim = transform.GetChild(0).GetComponent<Animator>();
+
         currentWeapon = SecondaryWeapon.ROCKS;
         weaponAmount = Enum.GetNames(typeof(SecondaryWeapon)).Length;
+        weaponNames[SecondaryWeapon.VINES] = "Vegetable Overgrowth";
+        weaponNames[SecondaryWeapon.ROCKS] = "Terrakinesis";
+        ChangeWeapon(weaponNames[currentWeapon]);
     }
 
     void Update()
@@ -56,11 +62,11 @@ public class PlayerAttack : MonoBehaviour
 
         if (Input.GetAxis(Constants.InputString.WEAPON_SWITCH) > 0) {
             currentWeapon = ScrollWeaponWheel((int)currentWeapon, false);
-            //Debug.Log(currentWeapon.ToString());
+            ChangeWeapon(weaponNames[currentWeapon]);
         }
         else if (Input.GetAxis(Constants.InputString.WEAPON_SWITCH) < 0) {
             currentWeapon = ScrollWeaponWheel((int)currentWeapon, true);
-            //Debug.Log(currentWeapon.ToString());
+            ChangeWeapon(weaponNames[currentWeapon]);
         }
     }
 
@@ -109,7 +115,7 @@ public class PlayerAttack : MonoBehaviour
             }
         }
 
-        Debug.Log(((SecondaryWeapon)aWeapon).ToString());
+        //Debug.Log(((SecondaryWeapon)aWeapon).ToString());
         return (SecondaryWeapon)aWeapon;
     }
 }
