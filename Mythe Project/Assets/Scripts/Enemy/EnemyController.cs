@@ -33,7 +33,7 @@ public class EnemyController : MonoBehaviour
         {
             isAttacking = true;
             agent.Stop();
-            Debug.Log("Touch");
+            //Debug.Log("Touch");
             if (attackable)
             {
                 StartCoroutine(Attack());

@@ -12,12 +12,24 @@ public class PlayerAttack : MonoBehaviour
     public event Action<RaycastHit> VineAttack;
     public event Action TurnCursorOff;
 
+    public enum SecondaryWeapon
+    {
+        VINES, ROCKS
+    }
+
     Animator anim;
+    SecondaryWeapon currentWeapon;
+
+    int weaponAmount;
+
+    public SecondaryWeapon CurrentWeapon { get { return currentWeapon; } }
 
     void Start()
     {
         Cursor.visible = false;
         anim = transform.GetChild(0).GetComponent<Animator>();
+        currentWeapon = SecondaryWeapon.ROCKS;
+        weaponAmount = Enum.GetNames(typeof(SecondaryWeapon)).Length;
     }
 
     void Update()
@@ -29,14 +41,26 @@ public class PlayerAttack : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            //Punching Animation
             anim.SetTrigger(Constants.AnimatorTriggerString.PUNCH);
         }
 
         if (hitObj.collider != null && hitObj.distance <= _maximumDistance)
         {
-            if (Input.GetMouseButtonDown(1) && hitObj.collider.gameObject.layer.Equals(Constants.Layer.SOIL)) {
+            //Attack with Vines
+            if (Input.GetMouseButtonDown(1) && hitObj.collider.gameObject.layer.Equals(Constants.Layer.SOIL) &&
+                currentWeapon == SecondaryWeapon.VINES) {
                 VineAttack(hitObj);
             }
+        }
+
+        if (Input.GetAxis(Constants.InputString.WEAPON_SWITCH) > 0) {
+            currentWeapon = ScrollWeaponWheel((int)currentWeapon, false);
+            //Debug.Log(currentWeapon.ToString());
+        }
+        else if (Input.GetAxis(Constants.InputString.WEAPON_SWITCH) < 0) {
+            currentWeapon = ScrollWeaponWheel((int)currentWeapon, true);
+            //Debug.Log(currentWeapon.ToString());
         }
     }
 
@@ -64,5 +88,28 @@ public class PlayerAttack : MonoBehaviour
         }
 
         return hit;
+    }
+
+    SecondaryWeapon ScrollWeaponWheel(int aWeapon, bool scrollingUp)
+    {
+        if (scrollingUp)
+        {
+            if (aWeapon < weaponAmount - 1) {
+                aWeapon++;
+            } else {
+                aWeapon = 0;
+            }
+        }
+        else
+        {
+            if (aWeapon > 0) {
+                aWeapon--;
+            } else {
+                aWeapon = weaponAmount - 1;
+            }
+        }
+
+        Debug.Log(((SecondaryWeapon)aWeapon).ToString());
+        return (SecondaryWeapon)aWeapon;
     }
 }

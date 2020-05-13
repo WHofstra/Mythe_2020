@@ -263,7 +263,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!195 &302083272
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -6931,7 +6931,6 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 8192
-  enemy: {fileID: 0}
 --- !u!1001 &1303844922
 PrefabInstance:
   m_ObjectHideFlags: 0

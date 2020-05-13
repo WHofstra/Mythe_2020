@@ -6,11 +6,12 @@ public class Constants : MonoBehaviour
 {
     public class InputString
     {
-        public const string HORIZONTAL = "Horizontal";
-        public const string VERTICAL   = "Vertical";
-        public const string MOUSE_X    = "Mouse X";
-        public const string MOUSE_Y    = "Mouse Y";
-        public const string RUN        = "Run";
+        public const string HORIZONTAL    = "Horizontal";
+        public const string VERTICAL      = "Vertical";
+        public const string MOUSE_X       = "Mouse X";
+        public const string MOUSE_Y       = "Mouse Y";
+        public const string RUN           = "Run";
+        public const string WEAPON_SWITCH = "WeaponSwitch";
     }
 
     public class Layer

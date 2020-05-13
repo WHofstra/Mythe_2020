@@ -23,9 +23,9 @@ public class RockBehavior : MonoBehaviour
     }
     public void Shoot(Vector3 target)
     {
-        Debug.Log("Shoot");
+        //Debug.Log("Shoot");
         Vector3 aim = transform.position - target;
-        Debug.Log(target);
+        //Debug.Log(target);
         aim.Normalize();
         GetComponent<Rigidbody>().AddForce(-aim*15, ForceMode.Impulse);
         GetComponent<Rigidbody>().AddForce(Vector3.up*5, ForceMode.Impulse);

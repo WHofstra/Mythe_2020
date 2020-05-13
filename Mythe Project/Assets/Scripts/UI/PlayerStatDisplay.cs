@@ -11,7 +11,8 @@ public class PlayerStatDisplay : MonoBehaviour
     void Start()
     {
         text = GetComponent<Text>();
-        playerHealth = FindObjectOfType<PlayerHealth>();if (playerHealth != null)
+        playerHealth = FindObjectOfType<PlayerHealth>();
+        if (playerHealth != null)
         {
             playerHealth = playerHealth.GetComponent<PlayerHealth>();
             playerHealth.changeHealth += GetHealthChange;
