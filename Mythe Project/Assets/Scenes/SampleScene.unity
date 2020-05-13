@@ -6931,6 +6931,7 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 8192
+  _player: {fileID: 963194229}
 --- !u!1001 &1303844922
 PrefabInstance:
   m_ObjectHideFlags: 0
