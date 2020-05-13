@@ -6,7 +6,7 @@ public class PlayerWeaponStats : UIscript
 {
     protected PlayerAttack attack;
 
-    protected new void Start()
+    void Awake()
     {
         base.Start();
 
