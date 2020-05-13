@@ -28,7 +28,7 @@ public class RockBehavior : MonoBehaviour
         Debug.Log(target);
         aim.Normalize();
         GetComponent<Rigidbody>().AddForce(-aim*15, ForceMode.Impulse);
-        GetComponent<Rigidbody>().AddForce(Vector3.up*5, ForceMode.Impulse);
+        GetComponent<Rigidbody>().AddForce(Vector3.up*4, ForceMode.Impulse);
 
     }
     
