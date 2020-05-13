@@ -65,7 +65,9 @@
      <Compile Include="Assets\Scripts\Player\PlayerHealth.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerPunchArea.cs" />
+     <Compile Include="Assets\Scripts\Player\RockThrow.cs" />
      <Compile Include="Assets\Scripts\Player\VineAttack.cs" />
+     <Compile Include="Assets\Scripts\Rock\RockBehavior.cs" />
      <Compile Include="Assets\Scripts\UI\PlayerStatDisplay.cs" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/2019.3.13f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
