@@ -6,9 +6,10 @@ using System;
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] float _strength;
+    [SerializeField] float _maximumDistance;
 
-    public event Action<Vector3> ChangeCursorPosition;
-    public event Action<Vector3> VineAttack;
+    public event Action<RaycastHit> ChangeCursorPosition;
+    public event Action<RaycastHit> VineAttack;
     public event Action TurnCursorOff;
 
     Animator anim;
@@ -31,10 +32,10 @@ public class PlayerAttack : MonoBehaviour
             anim.SetTrigger(Constants.AnimatorTriggerString.PUNCH);
         }
 
-        if (hitObj.collider != null)
+        if (hitObj.collider != null && hitObj.distance <= _maximumDistance)
         {
             if (Input.GetMouseButtonDown(1) && hitObj.collider.gameObject.layer.Equals(Constants.Layer.SOIL)) {
-                VineAttack(hitObj.point);
+                VineAttack(hitObj);
             }
         }
     }
@@ -47,7 +48,12 @@ public class PlayerAttack : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 30000, layerMask))
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
-            ChangeCursorPosition(hit.point);
+
+            if (hit.distance <= _maximumDistance) {
+                ChangeCursorPosition(hit);
+            } else {
+                TurnCursorOff();
+            }
         }
         else
         {

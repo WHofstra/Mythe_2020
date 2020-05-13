@@ -28,11 +28,13 @@ public class VineAttack : MonoBehaviour
         isAttacking = false;
     }
 
-    void Attack(Vector3 target)
+    void Attack(RaycastHit target)
     {
         if (!isAttacking)
         {
-            transform.position = target;
+            transform.position = target.point;
+            transform.up = target.normal;
+
             transform.GetChild(0).gameObject.SetActive(true);
             transform.GetChild(1).gameObject.SetActive(true);
 

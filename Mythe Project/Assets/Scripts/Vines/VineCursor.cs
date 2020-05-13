@@ -27,15 +27,18 @@ public class VineCursor : MonoBehaviour
     void Update()
     {
         rotation = transform.GetChild(0).rotation.eulerAngles.z;
+        rotation -= (Input.GetAxis(Constants.InputString.MOUSE_X) * _rotationSpeed * Time.deltaTime);
         rotation += (_rotationSpeed * Time.deltaTime);
+
         transform.GetChild(0).rotation = Quaternion.Euler(transform.GetChild(0).rotation.eulerAngles.x,
             transform.GetChild(0).rotation.eulerAngles.y, rotation);
     }
 
-    void ChangePosition(Vector3 position)
+    void ChangePosition(RaycastHit position)
     {
         transform.GetChild(0).gameObject.SetActive(true);
-        transform.position = position;
+        transform.position = position.point;
+        transform.up = position.normal;
     }
 
     void DisableVisibility()
