@@ -20,6 +20,7 @@ public class Constants : MonoBehaviour
         public const int SOIL   = 10;
         public const int ENEMY  = 11;
         public const int ATTACK = 12;
+        public const int ROCK = 13;
     }
 
     public class AnimatorTriggerString
