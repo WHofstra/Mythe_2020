@@ -17,11 +17,26 @@ public class RockBehavior : MonoBehaviour
     }
     public void AddToAction(RockThrow rock)
     {
+        startPos = transform.position;
+        timer = 0;
         rock.lifts += GoUp;
     }
     public void Shoot(Vector3 target)
     {
+        Debug.Log("Shoot");
         Vector3 aim = transform.position - target;
-        GetComponent<Rigidbody>().AddForce(aim, ForceMode.Impulse);
+        Debug.Log(target);
+        aim.Normalize();
+        GetComponent<Rigidbody>().AddForce(-aim*15, ForceMode.Impulse);
+        GetComponent<Rigidbody>().AddForce(Vector3.up*5, ForceMode.Impulse);
+
+    }
+    
+    public void OnTriggerEnter(Collider col)
+    {
+        if(col.GetComponent<EnemyHealth>() != null)
+        {
+            col.GetComponent<EnemyHealth>().Hit(GetComponent<Rigidbody>().velocity.magnitude);
+        }
     }
 }
