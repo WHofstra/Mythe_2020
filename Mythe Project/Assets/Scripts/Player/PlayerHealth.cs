@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] int _maximumHealth;
 
     public event Action ChangeHealth;
+    public event Action<Constants.States> Die;
 
     int currentHealth;
     bool hit;
@@ -53,6 +54,7 @@ public class PlayerHealth : MonoBehaviour
             }
             else {
                 currentHealth = 0;
+                Die(Constants.States.GAME_OVER);
             }
             ChangeHealth();
         }

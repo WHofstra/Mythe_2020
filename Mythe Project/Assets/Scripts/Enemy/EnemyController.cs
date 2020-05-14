@@ -24,8 +24,11 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        agent.SetDestination(player.transform.position);
-        DistanceChecker(player.transform.position, transform.position);
+        if (GetComponent<NavMeshAgent>().enabled)
+        {
+            agent.SetDestination(player.transform.position);
+            DistanceChecker(player.transform.position, transform.position);
+        }
     }
     private void DistanceChecker(Vector3 player, Vector3 enemy)
     {
