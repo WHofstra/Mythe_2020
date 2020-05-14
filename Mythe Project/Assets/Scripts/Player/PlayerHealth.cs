@@ -7,7 +7,7 @@ public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] int _maximumHealth;
 
-    public event Action changeHealth;
+    public event Action ChangeHealth;
 
     int currentHealth;
     bool hit;
@@ -18,7 +18,7 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth = _maximumHealth;
         hit = false;
-        changeHealth();
+        ChangeHealth();
     }
 
     void OnCollisionStay(Collision collision)
@@ -54,7 +54,7 @@ public class PlayerHealth : MonoBehaviour
             else {
                 currentHealth = 0;
             }
-            changeHealth();
+            ChangeHealth();
         }
     }
 }

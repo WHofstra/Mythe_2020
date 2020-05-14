@@ -1,20 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class PlayerStatDisplay : MonoBehaviour
+public class PlayerStatDisplay : UIscript
 {
-    Text text;
-    PlayerHealth playerHealth;
+    protected PlayerHealth playerHealth;
 
-    void Start()
+    protected new void Start()
     {
-        text = GetComponent<Text>();
-        playerHealth = FindObjectOfType<PlayerHealth>();if (playerHealth != null)
+        base.Start();
+
+        playerHealth = FindObjectOfType<PlayerHealth>();
+        if (playerHealth != null)
         {
             playerHealth = playerHealth.GetComponent<PlayerHealth>();
-            playerHealth.changeHealth += GetHealthChange;
+            playerHealth.ChangeHealth += GetHealthChange;
         }
     }
 
