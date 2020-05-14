@@ -6,6 +6,7 @@ using System;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] int _maximumHealth;
+    [SerializeField] GameObject gameOverScreen;
 
     public event Action ChangeHealth;
 
@@ -53,6 +54,9 @@ public class PlayerHealth : MonoBehaviour
             }
             else {
                 currentHealth = 0;
+                gameOverScreen.SetActive(true);
+                Cursor.visible = true;
+                Time.timeScale = 0;
             }
             ChangeHealth();
         }
