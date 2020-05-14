@@ -1,8 +1,12 @@
 ## [titel van jullie game]
-Project team:[jullie namen]
+**Project team _(Team 12)_:**
++ Ayla Dawson _(Game artist)_
++ Massi Houchi _(Game artist)_
++ Pelle Meijer _(Game programmeur)_
++ Tessa Brughuis _(Game artist)_
++ Wayne Hofstra _(Game programmeur)_
 
-Platform:
-[jullie platfom]
+**Platform:** Windows
 
 ### Korte omschrijving van de game
 ...
@@ -36,7 +40,7 @@ Platform:
 | Asset planning (pdf)                  | [AssetPlanning]
 |<img width=500/>|<img width=300/>|
 
-   [Backlog]: <https://trello.com/b/hik72z4q/mythe-2019-voorbeeld-trello>
+   [Backlog]: <https://trello.com/b/uBYw1WRt/orpheus-mythe-2020>
    [Logboek]: <https://github.com/BerendWeij/agp_inlever_template/blob/master/producten/logboek.pdf>
    [GameDesignDoc]: <https://github.com/BerendWeij/agp_inlever_template/blob/master/producten/GameDesignDoc.pdf>
    [RetrospectiveVerslagen]: <https://github.com/BerendWeij/agp_inlever_template/blob/master/producten/RetrospectiveVerslagen.pdf>
