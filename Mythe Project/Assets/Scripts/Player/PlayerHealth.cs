@@ -14,6 +14,7 @@ public class PlayerHealth : MonoBehaviour
     bool hit;
     
     public int CurrentHealth { get { return currentHealth; } set { currentHealth = value; } }
+    public int MaximumHealth { get { return _maximumHealth; } }
 
     void Start()
     {
