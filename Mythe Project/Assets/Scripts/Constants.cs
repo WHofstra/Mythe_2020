@@ -32,4 +32,11 @@ public class Constants : MonoBehaviour
         public const string LIFT        = "Lift";
         public const string THROW_ROCK        = "Throw_Rocks";
     }
+
+    public enum States
+    {
+        HOME,
+        PLAYING,
+        GAME_OVER
+    }
 }

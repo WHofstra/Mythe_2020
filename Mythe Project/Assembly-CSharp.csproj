@@ -68,6 +68,7 @@
      <Compile Include="Assets\Scripts\Player\RockThrow.cs" />
      <Compile Include="Assets\Scripts\Rock\RockBehavior.cs" />
      <Compile Include="Assets\Scripts\StateMachine.cs" />
+     <Compile Include="Assets\Scripts\UI\GameOverScript.cs" />
      <Compile Include="Assets\Scripts\UI\PlayerStatDisplay.cs" />
      <Compile Include="Assets\Scripts\UI\PlayerWeaponStats.cs" />
      <Compile Include="Assets\Scripts\UI\ReplayButton.cs" />
