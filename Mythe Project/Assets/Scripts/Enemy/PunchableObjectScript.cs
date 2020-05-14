@@ -23,7 +23,7 @@ public class PunchableObjectScript : MonoBehaviour
         {
             inAir = false;
             GetComponent<NavMeshAgent>().enabled = false;
-            Debug.Log("Stopped");
+            //Debug.Log("Stopped");
             StartCoroutine(InAirBoolChange());
         }
         rb.AddForce(force, ForceMode.Impulse);
