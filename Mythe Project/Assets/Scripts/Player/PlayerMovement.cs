@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float _defualtSpeed;
     [SerializeField] float _mouseSpeed;
     [SerializeField] float _jumpingHeight;
+    [SerializeField] float _lookingAngle;
 
     Rigidbody rb;
     Collider boxCollider;
@@ -18,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     float speed;
     bool arrowKeysPressed;
     bool onPlatform;
+    bool negativeRotation;
 
     void Start()
     {
@@ -27,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
         speed = _defualtSpeed;
         arrowKeysPressed = false;
         onPlatform = false;
+        negativeRotation = false;
     }
 
     void Update()
@@ -68,7 +71,12 @@ public class PlayerMovement : MonoBehaviour
 
         //Make Sure the Camera is the Gameobject's First Child
         camRotation = transform.GetChild(0).transform.eulerAngles;
+
+        //Camera Rotation Boundaries
         camRotation.x -= Input.GetAxis(Constants.InputString.MOUSE_Y) * _mouseSpeed * Time.deltaTime;
+        if (camRotation.x > _lookingAngle && camRotation.x < (360 - _lookingAngle)) {
+            camRotation.x += Input.GetAxis(Constants.InputString.MOUSE_Y) * _mouseSpeed * Time.deltaTime * 1.5f;
+        }
         transform.GetChild(0).transform.eulerAngles = camRotation;
 
         //Spacebar

@@ -7226,6 +7226,7 @@ MonoBehaviour:
   _defualtSpeed: 5
   _mouseSpeed: 100
   _jumpingHeight: 8
+  _lookingAngle: 90
 --- !u!54 &1294845928
 Rigidbody:
   m_ObjectHideFlags: 0
