@@ -31,11 +31,13 @@ public class RockThrow : MonoBehaviour
             if (Input.GetMouseButtonDown(1) && !lifting)
             {
                 LiftRocks();
+                GetComponent<PlayerAnimator>().Play(Constants.AnimatorTriggerString.LIFT);
                 //Debug.Log("lift");
                 StartCoroutine(SetLiftingState(lifting));
             }
             else if (Input.GetMouseButtonDown(1) && lifting)
             {
+                GetComponent<PlayerAnimator>().Play(Constants.AnimatorTriggerString.THROW_ROCK);
                 StartCoroutine(SetLiftingState(lifting));
             }
 
