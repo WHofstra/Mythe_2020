@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
         arrowKeysPressed = false;
         onPlatform = false;
         negativeRotation = false;
+        Screen.lockCursor = true;
     }
 
     void Update()
