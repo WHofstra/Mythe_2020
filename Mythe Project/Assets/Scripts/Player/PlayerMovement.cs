@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     Vector3 camRotation;
 
     float speed;
+    float currentSpeed;
     bool arrowKeysPressed;
     bool onPlatform;
     bool negativeRotation;
@@ -27,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
         boxCollider = GetComponent<Collider>();
 
         speed = _defualtSpeed;
+        currentSpeed = speed;
         arrowKeysPressed = false;
         onPlatform = false;
         negativeRotation = false;
@@ -41,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         InputKeysAndMouse();
+        GradualMovement();
     }
 
     void InputKeysAndMouse()
@@ -53,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
             arrowKeysPressed = true;
         } else {
             arrowKeysPressed = false;
+            currentSpeed = _defualtSpeed;
         }
 
         //Standard Arrow Keys and A-, W-, S- and D Keys
@@ -61,8 +65,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (arrowKeysPressed)
         {
-            transform.position += transform.forward * dir.z * speed * Time.deltaTime;
-            transform.position += transform.right * dir.x * speed * Time.deltaTime;
+            transform.position += transform.forward * dir.z * currentSpeed * Time.deltaTime;
+            transform.position += transform.right * dir.x * currentSpeed * Time.deltaTime;
         }
 
         //Mouse Rotation
@@ -88,11 +92,18 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Left Shift Key or Right Shift Key
-        if (Input.GetAxis(Constants.InputString.VERTICAL) > 0 && Input.GetAxis(Constants.InputString.HORIZONTAL) == 0 && onPlatform)
+            speed = _defualtSpeed + (Input.GetAxis(Constants.InputString.RUN) * 5);
+    }
+
+    void GradualMovement()
+    {
+        if (speed > currentSpeed)
         {
-            speed = _defualtSpeed + (Input.GetAxis(Constants.InputString.RUN) * 10);
-        } else {
-            speed = _defualtSpeed;
+            currentSpeed += Time.deltaTime*6;
+        }
+        if (speed < currentSpeed)
+        {
+            currentSpeed -= Time.deltaTime *10;
         }
     }
 
