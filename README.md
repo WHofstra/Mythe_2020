@@ -1,4 +1,4 @@
-## Tales of Orphean Euphonies: Eurydice's Resurrection
+## The Trail to Love
 **Project team _(Team 12)_:**
 + Ayla Dawson _(Game artist)_
 + Massi Houchi _(Game artist)_
