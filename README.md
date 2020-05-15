@@ -6,7 +6,7 @@
 + Tessa Brughuis _(Game artist)_
 + Wayne Hofstra _(Game programmeur)_
 
-**Platform:** Windows
+**Platform:** Pc, Mac en Linux.
 
 ### Korte omschrijving van de game
 Deze game is gebaseerd op een oud Grieks legende over Orpheus en zijn tocht om zijn dode geliefde, Eurydice, uit de onderwereld te begeleiden. Alleen gaat dit niet zo gemakkelijk als eerst werd verwacht. Zal Orpheus de verleiding weerstaan om zijn geliefde in de ogen te kijken tijdens zijn helse tocht?
