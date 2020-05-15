@@ -20,6 +20,6 @@ public class PlayerWeaponStats : UIscript
 
     void ChangeText(string ability)
     {
-        text.text = "Ability\t\t\n[" + ability + "]";
+        text.text = "Ability\n[" + ability + "]";
     }
 }

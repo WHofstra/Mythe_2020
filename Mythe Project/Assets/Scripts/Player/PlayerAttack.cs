@@ -31,7 +31,7 @@ public class PlayerAttack : MonoBehaviour
         Cursor.visible = false;
         anim = transform.GetChild(0).GetComponent<Animator>();
 
-        currentWeapon = SecondaryWeapon.ROCKS;
+        currentWeapon = SecondaryWeapon.VINES;
         weaponAmount = Enum.GetNames(typeof(SecondaryWeapon)).Length;
         weaponNames[SecondaryWeapon.VINES] = "Vegetable Overgrowth";
         weaponNames[SecondaryWeapon.ROCKS] = "Terrakinesis";

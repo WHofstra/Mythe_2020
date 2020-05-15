@@ -20,7 +20,7 @@ public class StateMachine : MonoBehaviour
     {
         // Changes Current State
         currentState = state;
-        Debug.Log(currentState);
+        //Debug.Log(currentState);
         StateChanged();
     }
 
