@@ -11,7 +11,7 @@ public class VineCollisions : MonoBehaviour
         if (collider.gameObject.layer.Equals(Constants.Layer.ENEMY) &&
             collider.GetComponent<PunchableObjectScript>() != null)
         {
-            collider.gameObject.GetComponent<PunchableObjectScript>().Punch
+            collider.gameObject.GetComponent<PunchableObjectScript>().VineHit
             (transform.up * _strength);
         }
     }
