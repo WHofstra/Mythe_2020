@@ -15,6 +15,14 @@ public class PunchableObjectScript : MonoBehaviour
 
     public void Punch(Vector3 force)
     {
+        if (gameObject.GetComponent<EnemyHealth>() != null)
+        {
+            gameObject.GetComponent<EnemyHealth>().Hit(10);
+        }
+        rb.AddForce(force, ForceMode.Impulse);
+    }
+    public void VineHit(Vector3 force)
+    {
         if (gameObject.GetComponent<EnemyHealth>() != null && inAir)
         {
             gameObject.GetComponent<EnemyHealth>().Hit(10);
@@ -26,6 +34,7 @@ public class PunchableObjectScript : MonoBehaviour
             //Debug.Log("Stopped");
             StartCoroutine(InAirBoolChange());
         }
+        rb.drag = 0;
         rb.AddForce(force, ForceMode.Impulse);
     }
 
@@ -41,6 +50,7 @@ public class PunchableObjectScript : MonoBehaviour
 
         if (gameObject.GetComponent<NavMeshAgent>() != null && inAir)
         {
+            rb.drag = 1;
             GetComponent<NavMeshAgent>().Warp(transform.position);
             GetComponent<NavMeshAgent>().enabled = true;
 
