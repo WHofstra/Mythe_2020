@@ -90,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Left Shift Key or Right Shift Key
-            speed = _defualtSpeed + (Input.GetAxis(Constants.InputString.RUN) * 5);
+        speed = _defualtSpeed + (Input.GetAxis(Constants.InputString.RUN) * 5);
     }
 
     void GradualMovement()
