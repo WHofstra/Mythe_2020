@@ -11,7 +11,7 @@ public class PlayerStatDisplay : MonoBehaviour
     Text text;
     Image image;
 
-    void Start()
+    void Awake()
     {
         playerHealth = FindObjectOfType<PlayerHealth>();
         text = transform.GetChild(1).GetComponent<Text>();
