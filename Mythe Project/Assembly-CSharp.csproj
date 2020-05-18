@@ -76,6 +76,9 @@
      <Compile Include="Assets\Scripts\Vines\VineAttack.cs" />
      <Compile Include="Assets\Scripts\Vines\VineCollisions.cs" />
      <Compile Include="Assets\Scripts\Vines\VineCursor.cs" />
+     <None Include="Assets\Materials\Grass\Grass Shader\Shaders\CustomTessellation.cginc" />
+     <None Include="Assets\Materials\Grass\Grass Shader\Grass.shader" />
+     <None Include="Assets\Materials\Grass\Grass Shader\Shaders\TessellationExample.shader" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/2019.3.13f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
