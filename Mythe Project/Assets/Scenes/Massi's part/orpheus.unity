@@ -5916,7 +5916,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StateChangers:
   - {fileID: 1986087590}
-  - {fileID: 0}
+  - {fileID: 767210945}
 --- !u!4 &423113047
 Transform:
   m_ObjectHideFlags: 0
@@ -6574,7 +6574,6 @@ GameObject:
   - component: {fileID: 924863132}
   - component: {fileID: 924863131}
   - component: {fileID: 924863130}
-  - component: {fileID: 924863129}
   - component: {fileID: 924863128}
   m_Layer: 11
   m_Name: Canvas
@@ -6605,18 +6604,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &924863129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 924863127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 724f072682e6e0c4abb5fb8ec4cec631, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &924863130
 MonoBehaviour:
   m_ObjectHideFlags: 0
