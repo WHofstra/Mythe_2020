@@ -10,10 +10,16 @@ public class StateMachine : MonoBehaviour
     [SerializeField]
     private List<GameObject> StateChangers = new List<GameObject>();
 
+    PlayerHealth playerHealth;
+    GameOverScript gameOver;
+
     void Start()
     {
+        playerHealth = StateChangers[0].GetComponent<PlayerHealth>();
+        gameOver = StateChangers[1].GetComponent<GameOverScript>();
+
         // Add Delegates that can change the state;
-        StateChangers[0].GetComponent<PlayerHealth>().Die += ChangeState; 
+        playerHealth.Die += ChangeState; 
     }
 
     public void ChangeState(Constants.States state) 
@@ -27,6 +33,6 @@ public class StateMachine : MonoBehaviour
     public void StateChanged()
     {
         // Add functions that check the Current State
-        StateChangers[1].GetComponent<GameOverScript>().GameOver(currentState);
+        gameOver.GameOver(currentState);
     }
 }
