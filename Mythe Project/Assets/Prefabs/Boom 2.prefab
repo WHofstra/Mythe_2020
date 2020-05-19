@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2845447420178719108}
-  - component: {fileID: 678738098216643145}
   m_Layer: 0
   m_Name: Boom 2
   m_TagString: Untagged
@@ -34,19 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &678738098216643145
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1235770267282379671}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.8092413, y: 7.6357822, z: 1.7979136}
-  m_Center: {x: 0.01618433, y: 3.3178911, z: 0.069009304}
 --- !u!1 &3069822652153611839
 GameObject:
   m_ObjectHideFlags: 0
