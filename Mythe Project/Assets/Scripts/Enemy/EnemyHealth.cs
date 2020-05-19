@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField]
-    int health = 50;
+    float health = 50;
 
     public void Hit(int damage)
     {
@@ -16,5 +16,9 @@ public class EnemyHealth : MonoBehaviour
             health = 0;
             Destroy(gameObject);
         }
+    }
+    public void Hit(float damage)
+    {
+        Hit(Mathf.RoundToInt(damage));
     }
 }

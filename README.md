@@ -1,4 +1,4 @@
-## [titel van jullie game]
+## The Trail to Love
 **Project team _(Team 12)_:**
 + Ayla Dawson _(Game artist)_
 + Massi Houchi _(Game artist)_
@@ -6,10 +6,10 @@
 + Tessa Brughuis _(Game artist)_
 + Wayne Hofstra _(Game programmeur)_
 
-**Platform:** Windows
+**Platform:** Pc, Mac en Linux.
 
 ### Korte omschrijving van de game
-...
+Deze game is gebaseerd op een oud Grieks legende over Orpheus en zijn tocht om zijn dode geliefde, Eurydice, uit de onderwereld te begeleiden. Alleen gaat dit niet zo gemakkelijk als eerst werd verwacht. Zal Orpheus de verleiding weerstaan om zijn geliefde in de ogen te kijken tijdens zijn helse tocht?
 
 ---
 #### Producten Werkproces 1
@@ -41,11 +41,11 @@
 |<img width=500/>|<img width=300/>|
 
    [Backlog]: <https://trello.com/b/uBYw1WRt/orpheus-mythe-2020>
-   [Logboek]: <https://github.com/BerendWeij/agp_inlever_template/blob/master/producten/logboek.pdf>
-   [GameDesignDoc]: <https://github.com/BerendWeij/agp_inlever_template/blob/master/producten/GameDesignDoc.pdf>
-   [RetrospectiveVerslagen]: <https://github.com/BerendWeij/agp_inlever_template/blob/master/producten/RetrospectiveVerslagen.pdf>
-   [ReviewVerslagen]: <https://github.com/BerendWeij/agp_inlever_template/blob/master/producten/ReviewVerslagen.pdf>
+   [Logboek]: <https://github.com/WHofstra/Mythe_2020/blob/master/producten/logboek.pdf>
+   [GameDesignDoc]: <https://github.com/WHofstra/Mythe_2020/blob/master/producten/GameDesignDoc.pdf>
+   [RetrospectiveVerslagen]: <https://github.com/WHofstra/Mythe_2020/blob/master/producten/RetrospectiveVerslagen.pdf>
+   [ReviewVerslagen]: <https://github.com/WHofstra/Mythe_2020/blob/master/producten/ReviewVerslagen.pdf>
    [Prototype]: <https://www.mijnmytheprototype.nl>
    [Folder op teams]: <https://www.linknaarmijnfolderopteams.nl>
-   [AssetPlanning]: <https://github.com/BerendWeij/agp_inlever_template/blob/master/producten/AssetPlanning.pdf>
+   [AssetPlanning]: <https://github.com/WHofstra/Mythe_2020/blob/master/producten/AssetPlanning.pdf>
    

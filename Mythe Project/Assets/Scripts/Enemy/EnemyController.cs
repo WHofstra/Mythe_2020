@@ -9,23 +9,26 @@ public class EnemyController : MonoBehaviour
     GameObject player;
 
     PlayerHealth ph;
-
+    PlayerAnimator playerAnim;
     NavMeshAgent agent;
 
     bool attackable = true;
     bool isAttacking = false;
-    // Start is called before the first frame update
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         ph = player.GetComponent<PlayerHealth>();
+        playerAnim = player.GetComponent<PlayerAnimator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        agent.SetDestination(player.transform.position);
-        DistanceChecker(player.transform.position, transform.position);
+        if (agent != null && agent.enabled)
+        {
+            agent.SetDestination(player.transform.position);
+            DistanceChecker(player.transform.position, transform.position);
+        }
     }
     private void DistanceChecker(Vector3 player, Vector3 enemy)
     {
@@ -33,7 +36,7 @@ public class EnemyController : MonoBehaviour
         {
             isAttacking = true;
             agent.Stop();
-            Debug.Log("Touch");
+            //Debug.Log("Touch");
             if (attackable)
             {
                 StartCoroutine(Attack());
@@ -50,10 +53,10 @@ public class EnemyController : MonoBehaviour
     {
         attackable = false;
         yield return new WaitForSeconds(1f);
-        if (isAttacking)
+        if (playerAnim != null && isAttacking)
         {
             ph.GetHit(10);
-            player.GetComponent<PlayerAnimator>().Play(Constants.AnimatorTriggerString.HIT);
+            playerAnim.Play(Constants.AnimatorTriggerString.HIT);
         }
         attackable = true;
     }

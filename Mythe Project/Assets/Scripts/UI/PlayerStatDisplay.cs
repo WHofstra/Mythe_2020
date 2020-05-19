@@ -5,21 +5,30 @@ using UnityEngine.UI;
 
 public class PlayerStatDisplay : MonoBehaviour
 {
-    Text text;
-    PlayerHealth playerHealth;
+    [SerializeField] Sprite[] _sprites;
 
-    void Start()
+    PlayerHealth playerHealth;
+    Text text;
+    Image image;
+
+    void Awake()
     {
-        text = GetComponent<Text>();
-        playerHealth = FindObjectOfType<PlayerHealth>();if (playerHealth != null)
+        playerHealth = FindObjectOfType<PlayerHealth>();
+        text = transform.GetChild(1).GetComponent<Text>();
+        image = transform.GetChild(0).GetComponent<Image>();
+
+        if (playerHealth != null)
         {
             playerHealth = playerHealth.GetComponent<PlayerHealth>();
-            playerHealth.changeHealth += GetHealthChange;
+            playerHealth.ChangeHealth += GetHealthChange;
         }
     }
 
     void GetHealthChange()
     {
+        int spriteIndex = Mathf.RoundToInt((((float)playerHealth.CurrentHealth) / ((float)playerHealth.MaximumHealth)) * (float)(_sprites.Length - 1));
+        //Debug.Log(spriteIndex);
         text.text = playerHealth.CurrentHealth.ToString();
+        image.sprite = _sprites[spriteIndex];
     }
 }

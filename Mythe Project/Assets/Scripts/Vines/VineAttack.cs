@@ -25,16 +25,20 @@ public class VineAttack : MonoBehaviour
 
         transform.GetChild(0).gameObject.SetActive(false);
         transform.GetChild(1).gameObject.SetActive(false);
+        transform.GetChild(2).gameObject.SetActive(false);
         isAttacking = false;
     }
 
-    void Attack(Vector3 target)
+    void Attack(RaycastHit target)
     {
         if (!isAttacking)
         {
-            transform.position = target;
+            transform.position = target.point;
+            transform.up = target.normal;
+
             transform.GetChild(0).gameObject.SetActive(true);
             transform.GetChild(1).gameObject.SetActive(true);
+            transform.GetChild(2).gameObject.SetActive(true);
 
             if (vineAnimator != null)
             {
@@ -51,6 +55,7 @@ public class VineAttack : MonoBehaviour
         yield return new WaitForSeconds(1.3f);
         transform.GetChild(0).gameObject.SetActive(false);
         transform.GetChild(1).gameObject.SetActive(false);
+        transform.GetChild(2).gameObject.SetActive(false);
         isAttacking = false;
     }
 }
