@@ -34,6 +34,11 @@ public class Constants : MonoBehaviour
         public const string THROW_ROCK  = "Throw_Rocks";
     }
 
+    public class ObjectName
+    {
+        public const string PLAYER = "Player";
+    }
+
     public enum States
     {
         HOME,
