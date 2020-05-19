@@ -28,8 +28,6 @@ public class PunchableObjectScript : MonoBehaviour
     }
     public void VineHit(Vector3 force)
     {
-
-
         if (enemyHealth != null)
         {
             if (inAir)
@@ -38,7 +36,7 @@ public class PunchableObjectScript : MonoBehaviour
             }
 
             inAir = false;
-            GetComponent<NavMeshAgent>().enabled = false;
+            agent.enabled = false;
             //Debug.Log("Stopped");
             StartCoroutine(InAirBoolChange());
         }
@@ -55,7 +53,6 @@ public class PunchableObjectScript : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-
         if (agent != null && inAir)
         {
             rb.drag = 1;

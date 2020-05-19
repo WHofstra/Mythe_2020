@@ -69,7 +69,7 @@ public class RockThrow : MonoBehaviour
         for(int i = 0; i < hitColliders.Length; i++)
         {
             //Debug.Log(hitColliders[i].name);
-            hitColliders[i].gameObject.GetComponent<RockBehavior>().AddToAction(this.GetComponent<RockThrow>());
+            hitColliders[i].gameObject.GetComponent<RockBehavior>().AddToAction(GetComponent<RockThrow>());
         }
     }
     RaycastHit GetRayFront(int layer)
