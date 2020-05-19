@@ -10,6 +10,6 @@ public class DialogueScene : ScriptableObject
     [SerializeField] protected bool _typeOutSentence;
     public bool TypeOut { get { return _typeOutSentence; } }
 
-    [SerializeField] protected float _sentenceDuration;
-    public float SentDuration { get { return _sentenceDuration; } }
+    [SerializeField] protected float[] _sentenceDuration;
+    public float[] SentDuration { get { return _sentenceDuration; } }
 }
