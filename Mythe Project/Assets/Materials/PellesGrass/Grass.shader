@@ -47,7 +47,7 @@
             float4 p = vertexData.vertex;
             float k = 2 * UNITY_PI / _Wavelength;
             if (p.y > 0) {
-                p.y += (_Amplitude * sin(k* (p.y - _Speed * _Time.y))*p.y);
+                p.xz += (_Amplitude * sin(k* (p.y - _Speed * _Time.y))*p.y);
             }
             vertexData.vertex = p;  
         }
