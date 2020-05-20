@@ -5,16 +5,12 @@ using System;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    [SerializeField] DialogueScene _dialogue;
+    [SerializeField] protected DialogueScene _dialogue;
 
     public event Action<DialogueScene> Scene;
 
-    void OnTriggerEnter(Collider collider)
+    protected void ChangeScene(DialogueScene aScene)
     {
-        if (collider.gameObject.layer.Equals(Constants.Layer.PLAYER) &&
-            collider.gameObject.name.Equals(Constants.ObjectName.PLAYER))
-        {
-            Scene(_dialogue);
-        }
+        Scene(aScene);
     }
 }
