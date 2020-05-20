@@ -10,6 +10,8 @@ public class DialogueSystem : MonoBehaviour
     public event Action<Sprite> ChangeImage;
     public event Action<string> ChangeText;
 
+    IEnumerator playingCoroutine;
+
     void Awake()
     {
         if (_triggers != null)
@@ -22,9 +24,15 @@ public class DialogueSystem : MonoBehaviour
 
     void TriggerScene(DialogueScene aScene)
     {
+        if (playingCoroutine != null) {
+            StopCoroutine(playingCoroutine);
+        }
+
+        playingCoroutine = WaitForNextDialogue(aScene);
+
         if (aScene.Sentences.Length > 0) {
             ChangeText(aScene.Sentences[0]);
-            StartCoroutine(WaitForNextDialogue(aScene));
+            StartCoroutine(playingCoroutine);
         }
     }
 
