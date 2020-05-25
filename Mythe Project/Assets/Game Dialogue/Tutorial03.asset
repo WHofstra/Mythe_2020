@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2ae7d51a8ac2d14ca27da457511ff8b, type: 3}
-  m_Name: Tutorial02
+  m_Name: Tutorial03
   m_EditorClassIdentifier: 
   _sentences:
-  - Use the arrow keys to walk.
-  - Press spacebar to jump.
-  - You can use shift to sprint while moving.
+  - Use left click to punch.
+  - Now, try to punch the haystack.
   _typeOutSentence: 0
   _sentenceDuration:
   - 3
-  _playOnLoop: 0
-  _repeatAfterSeconds: 0
+  _playOnLoop: 1
+  _repeatAfterSeconds: 5
