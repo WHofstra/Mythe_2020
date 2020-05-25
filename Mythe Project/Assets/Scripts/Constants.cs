@@ -36,7 +36,8 @@ public class Constants : MonoBehaviour
 
     public class ObjectName
     {
-        public const string PLAYER = "Player";
+        public const string PLAYER        = "Player";
+        public const string PLAYER_ATTACK = "AttackHitBox";
     }
 
     public enum States

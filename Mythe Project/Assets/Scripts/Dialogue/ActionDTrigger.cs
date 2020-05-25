@@ -4,8 +4,5 @@ using UnityEngine;
 
 public class ActionDTrigger : DialogueTrigger
 {
-    void Start()
-    {
-        
-    }
+    
 }
