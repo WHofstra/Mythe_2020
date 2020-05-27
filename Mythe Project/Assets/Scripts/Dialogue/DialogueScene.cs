@@ -22,4 +22,22 @@ public class DialogueScene : ScriptableObject
     {
         return 0f;
     }
+
+    public float GetDuration(int durationArrayLength, int sentArrayLength, float total)
+    {
+        if (durationArrayLength >= (sentArrayLength - 1))
+        {
+            for (int i = 0; i < durationArrayLength; i++) {
+                total += _sentenceDuration[i];
+            }
+        }
+        else
+        {
+            for (int i = 0; i < sentArrayLength; i++) {
+                total += _sentenceDuration[0];
+            }
+        }
+
+        return total;
+    }
 }

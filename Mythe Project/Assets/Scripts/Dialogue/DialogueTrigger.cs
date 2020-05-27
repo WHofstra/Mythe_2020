@@ -11,11 +11,21 @@ public class DialogueTrigger : MonoBehaviour
     public event Action<DialogueScene> Scene;
     public event Action NextTrigger;
 
+    protected float totalDuration;
+
     protected virtual void Start()
     {
-        Scene(_dialogue);
+        totalDuration = GetSecondsToWait() +
+        _dialogue.GetDuration(_dialogue.SentDuration.Length, _dialogue.Sentences.Length, 0.0f);
+
         //Checking if this is the only GameObject that's active...
         //Debug.Log(gameObject.name + " started its sequence.");
+
+        Scene(_dialogue);
+
+        if (_dialogue.GetLoop()) {
+            StartCoroutine(RepetitionCoroutine(_dialogue.GetRepeatInSeconds() + totalDuration));
+        }
     }
 
     protected void ChangeScene(DialogueScene aScene)
@@ -28,8 +38,15 @@ public class DialogueTrigger : MonoBehaviour
         NextTrigger();
     }
 
-    IEnumerator RepetitionCoroutine()
+    protected virtual float GetSecondsToWait()
     {
-        yield return new WaitForSeconds(_dialogue.GetRepeatInSeconds());
+        return 0;
+    }
+
+    IEnumerator RepetitionCoroutine(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        Scene(_dialogue);
+        StartCoroutine(RepetitionCoroutine(seconds));
     }
 }
