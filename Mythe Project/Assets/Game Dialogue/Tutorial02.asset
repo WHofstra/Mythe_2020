@@ -18,6 +18,6 @@ MonoBehaviour:
   - You can use shift to sprint while moving.
   _typeOutSentence: 0
   _sentenceDuration:
-  - 3
+  - 5
   _playOnLoop: 0
   _repeatAfterSeconds: 0

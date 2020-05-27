@@ -30,6 +30,9 @@ public class CollisionDTrigger : DialogueTrigger
             case ColObj.VINE:
                 WithVineAttack(collider);
                 break;
+            case ColObj.ROCK:
+                WithRocks(collider);
+                break;
         }
     }
 
@@ -48,7 +51,7 @@ public class CollisionDTrigger : DialogueTrigger
         if (coll.gameObject.layer.Equals(Constants.Layer.PLAYER) &&
             coll.gameObject.name.Equals(Constants.ObjectName.PLAYER))
         {
-            ChangeScene(_dialogue);
+            TriggerNextSceneTrigger();
         }
     }
 
@@ -57,23 +60,21 @@ public class CollisionDTrigger : DialogueTrigger
         if (coll.gameObject.layer.Equals(Constants.Layer.PLAYER) &&
             coll.gameObject.name.Equals(Constants.ObjectName.PLAYER_ATTACK) && Input.GetMouseButtonDown(0))
         {
-            ChangeScene(_dialogue);
+            TriggerNextSceneTrigger();
         }
     }
 
     protected void WithVineAttack(Collider coll)
     {
-        if (coll.gameObject.layer.Equals(Constants.Layer.ATTACK))
-        {
-            ChangeScene(_dialogue);
+        if (coll.gameObject.layer.Equals(Constants.Layer.ATTACK)) {
+            TriggerNextSceneTrigger();
         }
     }
 
     protected void WithRocks(Collider coll)
     {
-        if (coll.gameObject.layer.Equals(Constants.Layer.ROCK))
-        {
-            ChangeScene(_dialogue);
+        if (coll.gameObject.layer.Equals(Constants.Layer.ROCK)) {
+            TriggerNextSceneTrigger();
         }
     }
 }

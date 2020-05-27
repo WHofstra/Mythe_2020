@@ -17,6 +17,7 @@ MonoBehaviour:
   - Now, try to punch the haystack.
   _typeOutSentence: 0
   _sentenceDuration:
-  - 3
+  - 5
+  - 10
   _playOnLoop: 1
   _repeatAfterSeconds: 5

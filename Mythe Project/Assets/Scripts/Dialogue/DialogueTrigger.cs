@@ -6,14 +6,16 @@ using System;
 public class DialogueTrigger : MonoBehaviour
 {
     [SerializeField] protected DialogueScene _dialogue;
+    public DialogueScene Dialogue { get { return _dialogue; } }
 
     public event Action<DialogueScene> Scene;
+    public event Action NextTrigger;
 
-    protected bool repeat;
-
-    private void Start()
+    protected virtual void Start()
     {
-        repeat = false;
+        Scene(_dialogue);
+        //Checking if this is the only GameObject that's active...
+        //Debug.Log(gameObject.name + " started its sequence.");
     }
 
     protected void ChangeScene(DialogueScene aScene)
@@ -21,8 +23,13 @@ public class DialogueTrigger : MonoBehaviour
         Scene(aScene);
     }
 
+    protected void TriggerNextSceneTrigger()
+    {
+        NextTrigger();
+    }
+
     IEnumerator RepetitionCoroutine()
     {
-        yield return new WaitForSeconds(4.0f);
+        yield return new WaitForSeconds(_dialogue.GetRepeatInSeconds());
     }
 }
