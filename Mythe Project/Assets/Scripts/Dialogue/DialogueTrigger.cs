@@ -5,16 +5,48 @@ using System;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    [SerializeField] DialogueScene _dialogue;
+    [SerializeField] protected DialogueScene _dialogue;
+    public DialogueScene Dialogue { get { return _dialogue; } }
 
     public event Action<DialogueScene> Scene;
+    public event Action NextTrigger;
 
-    void OnTriggerEnter(Collider collider)
+    protected float totalDuration;
+
+    protected virtual void Start()
     {
-        if (collider.gameObject.layer.Equals(Constants.Layer.PLAYER) &&
-            collider.gameObject.name.Equals(Constants.ObjectName.PLAYER))
-        {
-            Scene(_dialogue);
+        totalDuration = GetSecondsToWait() +
+        _dialogue.GetDuration(_dialogue.SentDuration.Length, _dialogue.Sentences.Length, 0.0f);
+
+        //Checking if this is the only GameObject that's active...
+        //Debug.Log(gameObject.name + " started its sequence.");
+
+        Scene(_dialogue);
+
+        if (_dialogue.GetLoop()) {
+            StartCoroutine(RepetitionCoroutine(_dialogue.GetRepeatInSeconds() + totalDuration));
         }
+    }
+
+    protected void ChangeScene(DialogueScene aScene)
+    {
+        Scene(aScene);
+    }
+
+    protected void TriggerNextSceneTrigger()
+    {
+        NextTrigger();
+    }
+
+    protected virtual float GetSecondsToWait()
+    {
+        return 0;
+    }
+
+    IEnumerator RepetitionCoroutine(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        Scene(_dialogue);
+        StartCoroutine(RepetitionCoroutine(seconds));
     }
 }

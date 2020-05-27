@@ -58,7 +58,6 @@ public class PunchableObjectScript : MonoBehaviour
             rb.drag = 1;
             agent.Warp(transform.position);
             agent.enabled = true;
-
         }
     }
 }
