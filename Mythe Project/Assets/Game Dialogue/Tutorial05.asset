@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: Tutorial05
   m_EditorClassIdentifier: 
   _sentences:
+  - Use the scrolling wheel to switch weapons.
   - With Terrakinesis you can lift rocks.
   - Use right click again to release the rocks towards your target.
   - Try it out on the haystack.
   _typeOutSentence: 0
   _sentenceDuration:
+  - 5
   - 5
   - 5
   - 10

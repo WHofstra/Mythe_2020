@@ -10,6 +10,8 @@ public class CollisionDTrigger : DialogueTrigger
 
     [SerializeField] protected ColObj _collisionObject;
 
+    protected RockBehavior rock;
+
     protected void OnCollisionEnter(Collision collision)
     {
         switch (_collisionObject)
@@ -73,8 +75,13 @@ public class CollisionDTrigger : DialogueTrigger
 
     protected void WithRocks(Collider coll)
     {
-        if (coll.gameObject.layer.Equals(Constants.Layer.ROCK)) {
-            TriggerNextSceneTrigger();
+        if (coll.gameObject.layer.Equals(Constants.Layer.ROCK))
+        {
+            rock = coll.gameObject.GetComponent<RockBehavior>();
+
+            if (rock != null && rock.Shot) {
+                TriggerNextSceneTrigger();
+            }
         }
     }
 }
