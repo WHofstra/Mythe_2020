@@ -53,8 +53,12 @@ public class RockBehavior : MonoBehaviour
             enemy.Hit(rb.velocity.magnitude);
         }
 
-        if (col.gameObject.layer.Equals(Constants.Layer.SOIL)) {
+        if (rb.velocity.magnitude < 1.0f) {
             shot = false;
         }
+        /*
+        else {
+            Debug.Log(gameObject.name + " is hitting " + col.gameObject.name);
+        }//*/
     }
 }
