@@ -14,9 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sentences:
   - Now you are all set to rescue Eurydice.
+  - The River of Styx is waiting for you.
   - May Zeus have mercy on your soul.
   _typeOutSentence: 0
   _sentenceDuration:
+  - 5
+  - 10
   - 5
   _playOnLoop: 0
   _repeatAfterSeconds: 0

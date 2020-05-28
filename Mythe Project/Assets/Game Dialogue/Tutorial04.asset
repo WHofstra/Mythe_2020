@@ -13,12 +13,10 @@ MonoBehaviour:
   m_Name: Tutorial04
   m_EditorClassIdentifier: 
   _sentences:
-  - Use the scrolling wheel to switch weapons.
   - Use right click to activate the special ability.
   - Try to attack the haystack with your Vegetable Overgrowth.
   _typeOutSentence: 0
   _sentenceDuration:
-  - 5
   - 5
   - 10
   _playOnLoop: 1
