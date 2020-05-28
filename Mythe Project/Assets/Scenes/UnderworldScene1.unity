@@ -821,13 +821,14 @@ GameObject:
   - component: {fileID: 689977627}
   - component: {fileID: 689977629}
   - component: {fileID: 689977628}
+  - component: {fileID: 689977630}
   m_Layer: 11
   m_Name: TunnelVision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &689977627
 RectTransform:
   m_ObjectHideFlags: 0
@@ -860,7 +861,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -884,6 +885,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 689977626}
   m_CullTransparentMesh: 0
+--- !u!95 &689977630
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 689977626}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4cb16c08f76aeaa4abcb64cdb5eef7cb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &736566518
 GameObject:
   m_ObjectHideFlags: 0
@@ -1004,7 +1024,7 @@ PrefabInstance:
     - target: {fileID: 2963540532474184944, guid: a3f0e09e4d1901245820d3a42707ef8e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.4000001
+      value: 17.53
       objectReference: {fileID: 0}
     - target: {fileID: 2963540532474184944, guid: a3f0e09e4d1901245820d3a42707ef8e,
         type: 3}
