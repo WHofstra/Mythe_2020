@@ -12,4 +12,32 @@ public class DialogueScene : ScriptableObject
 
     [SerializeField] protected float[] _sentenceDuration;
     public float[] SentDuration { get { return _sentenceDuration; } }
+
+    public virtual bool GetLoop()
+    {
+        return false;
+    }
+
+    public virtual float GetRepeatInSeconds()
+    {
+        return 0f;
+    }
+
+    public float GetDuration(int durationArrayLength, int sentArrayLength, float total)
+    {
+        if (durationArrayLength >= (sentArrayLength - 1))
+        {
+            for (int i = 0; i < durationArrayLength; i++) {
+                total += _sentenceDuration[i];
+            }
+        }
+        else
+        {
+            for (int i = 0; i < sentArrayLength; i++) {
+                total += _sentenceDuration[0];
+            }
+        }
+
+        return total;
+    }
 }

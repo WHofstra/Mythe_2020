@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Tutorial02
   m_EditorClassIdentifier: 
   _sentences:
-  - Left click to punch.
-  - Right click to activate a special ability.
-  - Scroll your mousewheel to switch between abilities.
+  - Use the arrow keys to walk.
+  - Press spacebar to jump.
+  - You can use shift to sprint while moving.
   _typeOutSentence: 0
   _sentenceDuration:
-  - 3
+  - 5
+  _playOnLoop: 0
+  _repeatAfterSeconds: 0
