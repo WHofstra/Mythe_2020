@@ -98,14 +98,12 @@
                 float waterDepthDifference01 = saturate(depthDifference / _DepthMaxDistance);
                 float4 waterColor = lerp(_DepthGradientShallow, _DepthGradientDeep, waterDepthDifference01);
 
-                float foamDepthDifference01 = 0;
-                if (depthDifference < _FoamDistance) {
-                    foamDepthDifference01 = 0.1/depthDifference;
-                }
+                float foamDepthDifference01 = saturate(depthDifference / _FoamDistance);
+                float foam = _FoamDistance > depthDifference && depthDifference > 0 ? 0.7 -depthDifference : 0;
 
                 float3 normal = normalize(i.worldNormal);
                 float NdotL = dot(_WorldSpaceLightPos0, normal);
-                return (waterColor *  (waterColor +NdotL)) + foamDepthDifference01;
+                return (waterColor *  (waterColor*0.8 +NdotL*2)) + foam;
             }
             ENDCG
         }
