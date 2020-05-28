@@ -12,6 +12,7 @@ public class TreeSpawner : MonoBehaviour
     Texture2D image;
     [SerializeField]
     int width = 30, height = 30;
+    int size = 100;
     int zpos;
 
     // Start is called before the first frame update
@@ -24,9 +25,9 @@ public class TreeSpawner : MonoBehaviour
             for(int x = 0; x < height; x++)
             {
                 GameObject obj = Instantiate(tree);
-                obj.transform.position = new Vector3((x + Random.Range(-0.3f, 0.3f)) * (100/width), 0, (zpos + Random.Range(-0.3f, 0.3f)) * (100 / height));
+                obj.transform.position = new Vector3((x + Random.Range(-0.3f, 0.3f)) * (size / width), 0, (zpos + Random.Range(-0.3f, 0.3f)) * (size / height));
                 
-                if (image.GetPixel(Mathf.RoundToInt(obj.transform.position.x) / (100 / width) * (1024 / width), Mathf.RoundToInt(obj.transform.position.z) / (100 / width) * (1024 / height)).r == 0)
+                if (image.GetPixel(Mathf.RoundToInt(obj.transform.position.x) / (size / width) * (1024 / width), Mathf.RoundToInt(obj.transform.position.z) / (size / width) * (1024 / height)).r == 0)
                 {
                     Debug.Log("Bey bey");
                     Destroy(obj);
