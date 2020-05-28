@@ -738,7 +738,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3327416373804174655}
-  - component: {fileID: 8656907122792789626}
   m_Layer: 0
   m_Name: Boom 1
   m_TagString: Untagged
@@ -754,7 +753,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1762598816382222124}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 81.69176, y: 0, z: 84.5906}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2488388302526824182}
@@ -763,19 +762,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &8656907122792789626
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1762598816382222124}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.9949379, y: 5.2386603, z: 0.8942542}
-  m_Center: {x: -0.0025310516, y: 2.1193302, z: -0.007553339}
 --- !u!1 &1884678091312730709
 GameObject:
   m_ObjectHideFlags: 0
@@ -2866,7 +2852,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4817102381331906833
 Transform:
   m_ObjectHideFlags: 0

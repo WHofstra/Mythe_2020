@@ -8,8 +8,7 @@ public class VineCollisions : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject.layer.Equals(Constants.Layer.ENEMY) &&
-            collider.GetComponent<PunchableObjectScript>() != null)
+        if (collider.GetComponent<PunchableObjectScript>() != null)
         {
             collider.gameObject.GetComponent<PunchableObjectScript>().VineHit
             (transform.up * _strength);

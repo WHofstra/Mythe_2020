@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class RockBehavior : MonoBehaviour
 {
+    Rigidbody rb;
+
     Vector3 startPos;
     float timer = 0;
+
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
         startPos = transform.position;
     }
+
     void GoUp()
     {
         timer += Time.deltaTime;
@@ -27,8 +32,8 @@ public class RockBehavior : MonoBehaviour
         Vector3 aim = transform.position - target;
         //Debug.Log(target);
         aim.Normalize();
-        GetComponent<Rigidbody>().AddForce(-aim*15, ForceMode.Impulse);
-        GetComponent<Rigidbody>().AddForce(Vector3.up*4, ForceMode.Impulse);
+        rb.AddForce(-aim*15, ForceMode.Impulse);
+        rb.AddForce(Vector3.up*4, ForceMode.Impulse);
 
     }
     

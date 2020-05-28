@@ -8,8 +8,7 @@ public class PlayerPunchArea : MonoBehaviour
 
     void OnTriggerStay(Collider collid)
     {
-        if (collid.gameObject.layer.Equals(Constants.Layer.ENEMY) && Input.GetMouseButtonDown(0) &&
-            collid.gameObject.GetComponent<PunchableObjectScript>() != null)
+        if (Input.GetMouseButtonDown(0) && collid.gameObject.GetComponent<PunchableObjectScript>() != null)
         {
             float degToRad = Mathf.PI / 180;
             collid.gameObject.GetComponent<PunchableObjectScript>().Punch

@@ -19,12 +19,6 @@ public class EnemyHealth : MonoBehaviour
     }
     public void Hit(float damage)
     {
-        health -= Mathf.Round(damage);
-        Debug.Log("Enemy Health is now = " + health);
-        if (health <= 0)
-        {
-            health = 0;
-            Destroy(gameObject);
-        }
+        Hit(Mathf.RoundToInt(damage));
     }
 }

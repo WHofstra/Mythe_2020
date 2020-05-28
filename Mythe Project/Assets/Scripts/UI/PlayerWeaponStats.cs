@@ -8,7 +8,7 @@ public class PlayerWeaponStats : UIscript
 
     void Awake()
     {
-        base.Start();
+        Start();
 
         attack = FindObjectOfType<PlayerAttack>();
         if (attack != null)

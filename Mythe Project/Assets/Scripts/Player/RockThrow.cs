@@ -10,12 +10,14 @@ public class RockThrow : MonoBehaviour
     [SerializeField] LayerMask layer;
     [SerializeField] PlayerAttack _player;
 
+    PlayerAnimator playerAnim;
     Collider[] hitColliders;
 
     bool lifting;
 
     void Start()
     {
+        playerAnim = GetComponent<PlayerAnimator>();
         lifting = false;
     }
 
@@ -31,13 +33,13 @@ public class RockThrow : MonoBehaviour
             if (Input.GetMouseButtonDown(1) && !lifting)
             {
                 LiftRocks();
-                GetComponent<PlayerAnimator>().Play(Constants.AnimatorTriggerString.LIFT);
+                playerAnim.Play(Constants.AnimatorTriggerString.LIFT);
                 //Debug.Log("lift");
                 StartCoroutine(SetLiftingState(lifting));
             }
             else if (Input.GetMouseButtonDown(1) && lifting)
             {
-                GetComponent<PlayerAnimator>().Play(Constants.AnimatorTriggerString.THROW_ROCK);
+                playerAnim.Play(Constants.AnimatorTriggerString.THROW_ROCK);
                 StartCoroutine(SetLiftingState(lifting));
             }
 
@@ -67,7 +69,7 @@ public class RockThrow : MonoBehaviour
         for(int i = 0; i < hitColliders.Length; i++)
         {
             //Debug.Log(hitColliders[i].name);
-            hitColliders[i].gameObject.GetComponent<RockBehavior>().AddToAction(this.GetComponent<RockThrow>());
+            hitColliders[i].gameObject.GetComponent<RockBehavior>().AddToAction(GetComponent<RockThrow>());
         }
     }
     RaycastHit GetRayFront(int layer)

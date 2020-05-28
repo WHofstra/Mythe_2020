@@ -6,31 +6,37 @@ using UnityEngine.AI;
 public class PunchableObjectScript : MonoBehaviour
 {
     Rigidbody rb;
+    EnemyHealth enemyHealth;
+    NavMeshAgent agent;
+
     bool inAir = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        enemyHealth = GetComponent<EnemyHealth>();
+        agent = GetComponent<NavMeshAgent>();
     }
 
     public void Punch(Vector3 force)
     {
-        if (gameObject.GetComponent<EnemyHealth>() != null)
+        if (enemyHealth != null)
         {
-            gameObject.GetComponent<EnemyHealth>().Hit(10);
+            enemyHealth.Hit(10);
         }
         rb.AddForce(force, ForceMode.Impulse);
     }
     public void VineHit(Vector3 force)
     {
-        if (gameObject.GetComponent<EnemyHealth>() != null && inAir)
+        if (enemyHealth != null)
         {
-            gameObject.GetComponent<EnemyHealth>().Hit(10);
-        }
-        if (gameObject.GetComponent<NavMeshAgent>() != null)
-        {
+            if (inAir)
+            {
+                enemyHealth.Hit(10);
+            }
+
             inAir = false;
-            GetComponent<NavMeshAgent>().enabled = false;
+            agent.enabled = false;
             //Debug.Log("Stopped");
             StartCoroutine(InAirBoolChange());
         }
@@ -41,18 +47,17 @@ public class PunchableObjectScript : MonoBehaviour
     IEnumerator InAirBoolChange()
     {
         yield return new WaitForSeconds(1f);
-        this.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+        rb.velocity = new Vector3(0, 0, 0);
         inAir = true;
     }
 
     void OnTriggerEnter(Collider col)
     {
-
-        if (gameObject.GetComponent<NavMeshAgent>() != null && inAir)
+        if (agent != null && inAir)
         {
             rb.drag = 1;
-            GetComponent<NavMeshAgent>().Warp(transform.position);
-            GetComponent<NavMeshAgent>().enabled = true;
+            agent.Warp(transform.position);
+            agent.enabled = true;
 
         }
     }

@@ -20,7 +20,6 @@ public class PlayerMovement : MonoBehaviour
     float currentSpeed;
     bool arrowKeysPressed;
     bool onPlatform;
-    bool negativeRotation;
 
     void Start()
     {
@@ -31,7 +30,6 @@ public class PlayerMovement : MonoBehaviour
         currentSpeed = speed;
         arrowKeysPressed = false;
         onPlatform = false;
-        negativeRotation = false;
         Screen.lockCursor = true;
     }
 
@@ -92,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Left Shift Key or Right Shift Key
-            speed = _defualtSpeed + (Input.GetAxis(Constants.InputString.RUN) * 5);
+        speed = _defualtSpeed + (Input.GetAxis(Constants.InputString.RUN) * 5);
     }
 
     void GradualMovement()
