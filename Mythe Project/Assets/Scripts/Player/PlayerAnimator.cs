@@ -11,4 +11,9 @@ public class PlayerAnimator : MonoBehaviour
     {
         anim.SetTrigger(animation);
     }
+
+    public void SetBoolTo(string animation, bool state)
+    {
+        anim.SetBool(animation, state);
+    }
 }

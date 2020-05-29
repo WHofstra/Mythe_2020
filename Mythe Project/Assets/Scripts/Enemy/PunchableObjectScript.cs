@@ -20,12 +20,9 @@ public class PunchableObjectScript : MonoBehaviour
 
     public void Punch(Vector3 force)
     {
-        if (enemyHealth != null)
-        {
-            enemyHealth.Hit(10);
-        }
-        rb.AddForce(force, ForceMode.Impulse);
+        StartCoroutine(PunchCoroutine(force, 10, 0.4333f));
     }
+
     public void VineHit(Vector3 force)
     {
         if (enemyHealth != null)
@@ -49,6 +46,16 @@ public class PunchableObjectScript : MonoBehaviour
         yield return new WaitForSeconds(1f);
         rb.velocity = new Vector3(0, 0, 0);
         inAir = true;
+    }
+
+    IEnumerator PunchCoroutine(Vector3 aForce, int damage, float secs)
+    {
+        yield return new WaitForSeconds(secs);
+
+        if (enemyHealth != null) {
+            enemyHealth.Hit(damage);
+        }
+        rb.AddForce(aForce, ForceMode.Impulse);
     }
 
     void OnTriggerEnter(Collider col)

@@ -33,14 +33,17 @@ public class RockThrow : MonoBehaviour
             if (Input.GetMouseButtonDown(1) && !lifting)
             {
                 LiftRocks();
-                playerAnim.Play(Constants.AnimatorTriggerString.LIFT);
+
+                //playerAnim.Play(Constants.AnimatorTriggerString.LIFT); //Used for Previous Models and Animator
+                playerAnim.Play(Constants.AnimatorTriggerString.THROW_ROCK);
+
                 //Debug.Log("lift");
-                StartCoroutine(SetLiftingState(lifting));
+                StartCoroutine(SetLiftingState(lifting, 0.4f));
             }
             else if (Input.GetMouseButtonDown(1) && lifting)
             {
                 playerAnim.Play(Constants.AnimatorTriggerString.THROW_ROCK);
-                StartCoroutine(SetLiftingState(lifting));
+                StartCoroutine(SetLiftingState(lifting, 0.4f));
             }
 
             if (lifts != null)
@@ -48,16 +51,11 @@ public class RockThrow : MonoBehaviour
                 if (Input.GetMouseButtonDown(1) && lifting)
                 {
                     GetRayFront(Constants.Layer.PLAYER);
-                    for (int i = 0; i < hitColliders.Length; i++)
-                    {
-                        hitColliders[i].gameObject.GetComponent<RockBehavior>().Shoot(GetRayFront(Constants.Layer.PLAYER).point);
-                    }
-                    hitColliders = null;
-                    lifts = null;
+                    StartCoroutine(Shoot(0.4f));
                 }
                 else if (!Input.GetMouseButtonDown(1))
                 {
-                    lifts();
+                    StartCoroutine(Lift(0.4f));
                 }
             }
         }
@@ -72,6 +70,7 @@ public class RockThrow : MonoBehaviour
             hitColliders[i].gameObject.GetComponent<RockBehavior>().AddToAction(GetComponent<RockThrow>());
         }
     }
+
     RaycastHit GetRayFront(int layer)
     {
         RaycastHit hit;
@@ -86,14 +85,32 @@ public class RockThrow : MonoBehaviour
         return hit;
     }
 
-    IEnumerator SetLiftingState(bool state)
+    IEnumerator SetLiftingState(bool state, float secs)
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(secs);
 
         if (state) {
             lifting = false;
         } else {
             lifting = true;
         }
+    }
+
+    IEnumerator Lift(float secs)
+    {
+        yield return new WaitForSeconds(secs);
+        lifts?.Invoke();
+    }
+
+    IEnumerator Shoot(float secs)
+    {
+        yield return new WaitForSeconds(secs);
+
+        for (int i = 0; i < hitColliders.Length; i++) {
+            hitColliders[i].gameObject.GetComponent<RockBehavior>().Shoot(GetRayFront(Constants.Layer.PLAYER).point);
+        }
+
+        hitColliders = null;
+        lifts = null;
     }
 }

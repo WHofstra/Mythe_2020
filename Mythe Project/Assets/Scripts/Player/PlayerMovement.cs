@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody rb;
     Collider boxCollider;
+    PlayerAnimator anim;
 
     Vector3 dir;
     Vector3 rotation;
@@ -25,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         boxCollider = GetComponent<Collider>();
+        anim = GetComponent<PlayerAnimator>();
 
         speed = _defualtSpeed;
         currentSpeed = speed;
@@ -65,6 +67,16 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.position += transform.forward * dir.z * currentSpeed * Time.deltaTime;
             transform.position += transform.right * dir.x * currentSpeed * Time.deltaTime;
+
+            if (anim != null)
+            {
+                if (Input.GetAxis(Constants.InputString.RUN) != 0 && onPlatform) {
+                    anim.SetBoolTo(Constants.AnimatorTriggerString.RUNNING, true);
+                }
+                else {
+                    anim.SetBoolTo(Constants.AnimatorTriggerString.RUNNING, false);
+                }
+            }
         }
 
         //Mouse Rotation
