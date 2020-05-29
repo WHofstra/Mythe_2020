@@ -6,8 +6,9 @@ public class ReplayButton : MonoBehaviour
 {
     public void Replay()
     {
-        Cursor.visible = false;
+        Screen.lockCursor = true;
         Time.timeScale = 1;
-        Application.LoadLevel("SampleScene");
+        Cursor.visible = false;
+        Application.LoadLevel(1);
     }
 }

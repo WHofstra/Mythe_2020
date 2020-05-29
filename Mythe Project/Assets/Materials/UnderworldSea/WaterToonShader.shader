@@ -63,7 +63,7 @@
                 //Calculate Wave
                 float4 wpos = mul(unity_ObjectToWorld, v);
                 float k = 2 * UNITY_PI / _WaveLength;
-                wpos.y = _Amplitude * sin(k * (wpos.x - _WaveSpeed * _Time.y));
+                wpos.y = _Amplitude * sin(k * (wpos.z - _WaveSpeed * _Time.y));
                 return mul(unity_WorldToObject, wpos);
             }
 
@@ -103,7 +103,7 @@
 
                 float3 normal = normalize(i.worldNormal);
                 float NdotL = dot(_WorldSpaceLightPos0, normal);
-                return (waterColor *  (waterColor*0.8 +NdotL*2)) + foam;
+                return (waterColor *  (waterColor*0.5 +NdotL*2)) + foam;
             }
             ENDCG
         }
