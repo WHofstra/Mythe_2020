@@ -55,8 +55,10 @@ public class PlayerAttack : MonoBehaviour
         {
             //Attack with Vines
             if (Input.GetMouseButtonDown(1) && hitObj.collider.gameObject.layer.Equals(Constants.Layer.SOIL) &&
-                currentWeapon == SecondaryWeapon.VINES) {
-                VineAttack(hitObj);
+                currentWeapon == SecondaryWeapon.VINES)
+            {
+                anim.SetTrigger(Constants.AnimatorTriggerString.THROW_ROCK);
+                StartCoroutine(AttackCoroutine(hitObj, 0.4f));
             }
         }
 
@@ -117,5 +119,11 @@ public class PlayerAttack : MonoBehaviour
 
         //Debug.Log(((SecondaryWeapon)aWeapon).ToString());
         return (SecondaryWeapon)aWeapon;
+    }
+
+    IEnumerator AttackCoroutine(RaycastHit hit, float secs)
+    {
+        yield return new WaitForSeconds(secs);
+        VineAttack(hit);
     }
 }

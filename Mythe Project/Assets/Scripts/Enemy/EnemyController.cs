@@ -7,6 +7,8 @@ public class EnemyController : MonoBehaviour
 {
     [SerializeField]
     GameObject player;
+    [SerializeField]
+    int followDistance = 30;
 
     PlayerHealth ph;
     PlayerAnimator playerAnim;
@@ -32,6 +34,17 @@ public class EnemyController : MonoBehaviour
     }
     private void DistanceChecker(Vector3 player, Vector3 enemy)
     {
+        if(Vector3.Distance(player, enemy) < followDistance)
+        {
+            agent.Resume();
+            isAttacking = false;
+        }
+        else
+        {
+            Debug.Log("too far");
+            agent.Stop();
+        }
+
         if(Vector3.Distance(player,enemy) < 4f)
         {
             isAttacking = true;
@@ -41,11 +54,6 @@ public class EnemyController : MonoBehaviour
             {
                 StartCoroutine(Attack());
             }
-        }
-        else
-        {
-            isAttacking = false;
-            agent.Resume();
         }
     }
 

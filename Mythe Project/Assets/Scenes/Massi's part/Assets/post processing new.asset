@@ -52,38 +52,38 @@ MonoBehaviour:
     overrideState: 0
     value: 1
   temperature:
-    overrideState: 0
-    value: 0
-  tint:
     overrideState: 1
+    value: 86
+  tint:
+    overrideState: 0
     value: -35
   colorFilter:
-    overrideState: 1
+    overrideState: 0
     value: {r: 0.5394797, g: 0.5394797, b: 0.5394797, a: 1}
   hueShift:
     overrideState: 1
-    value: -5
+    value: -9
   saturation:
     overrideState: 1
-    value: -13
+    value: 19
   brightness:
     overrideState: 0
     value: 0
   postExposure:
     overrideState: 1
-    value: 1
+    value: 2.5
   contrast:
     overrideState: 1
-    value: 23
+    value: -12
   mixerRedOutRedIn:
     overrideState: 1
-    value: 107
+    value: 56
   mixerRedOutGreenIn:
     overrideState: 1
-    value: 23
+    value: 53
   mixerRedOutBlueIn:
     overrideState: 1
-    value: -31
+    value: -46
   mixerGreenOutRedIn:
     overrideState: 0
     value: 0
@@ -104,13 +104,13 @@ MonoBehaviour:
     value: 100
   lift:
     overrideState: 1
-    value: {x: 1, y: 0.75487846, z: 0.44099903, w: 0}
+    value: {x: 1, y: 0.8278, z: 0.8386336, w: 0}
   gamma:
     overrideState: 1
-    value: {x: 0.5960622, y: 0.69153666, z: 1, w: 0}
+    value: {x: 1, y: 0.9451745, z: 0.7158849, w: 0}
   gain:
     overrideState: 1
-    value: {x: 0.73168176, y: 0.8742314, z: 1, w: 0}
+    value: {x: 0.94059783, y: 1, z: 0.8650663, w: 0}
   masterCurve:
     overrideState: 0
     value:
@@ -1332,10 +1332,10 @@ MonoBehaviour:
     value: 2.51
   aperture:
     overrideState: 1
-    value: 5.8
+    value: 0.1
   focalLength:
     overrideState: 1
-    value: 48
+    value: 5.8
   kernelSize:
     overrideState: 0
     value: 0
@@ -1375,21 +1375,21 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 1
+    value: 0.41
   threshold:
     overrideState: 1
-    value: 1
+    value: 0.26
   softKnee:
     overrideState: 1
-    value: 1
+    value: 0
   clamp:
     overrideState: 1
-    value: 65472
+    value: 0.19
   diffusion:
     overrideState: 1
-    value: 7
+    value: 1
   anamorphicRatio:
-    overrideState: 1
+    overrideState: 0
     value: 0
   color:
     overrideState: 1
@@ -1403,7 +1403,7 @@ MonoBehaviour:
     defaultState: 1
   dirtIntensity:
     overrideState: 1
-    value: 5
+    value: 3.29
 --- !u!114 &2395778414807811535
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1416,7 +1416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1cb7e9e120078f43bce4f0b1be547a7, type: 3}
   m_Name: AmbientOcclusion
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1
