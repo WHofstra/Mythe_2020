@@ -20,6 +20,10 @@ public class PlayerMana : MonoBehaviour
         currentMana = _maximumManaAmount;
         manaRequired[Constants.SecondaryWeapon.VINES] = 10;
         manaRequired[Constants.SecondaryWeapon.ROCKS] = 25;
+    }
+
+    void Start()
+    {
         ChangeAmount();
     }
 
