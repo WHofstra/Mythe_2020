@@ -67,15 +67,15 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.position += transform.forward * dir.z * currentSpeed * Time.deltaTime;
             transform.position += transform.right * dir.x * currentSpeed * Time.deltaTime;
+        }
 
-            if (anim != null)
-            {
-                if (Input.GetAxis(Constants.InputString.RUN) != 0 && onPlatform) {
-                    anim.SetBoolTo(Constants.AnimatorTriggerString.RUNNING, true);
-                }
-                else {
-                    anim.SetBoolTo(Constants.AnimatorTriggerString.RUNNING, false);
-                }
+        if (anim != null)
+        {
+            if (Input.GetAxis(Constants.InputString.RUN) != 0 && onPlatform && arrowKeysPressed) {
+                anim.SetBoolTo(Constants.AnimatorTriggerString.RUNNING, true);
+            }
+            else {
+                anim.SetBoolTo(Constants.AnimatorTriggerString.RUNNING, false);
             }
         }
 
@@ -127,7 +127,7 @@ public class PlayerMovement : MonoBehaviour
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * hit.distance, Color.blue);
         }
 
-        if ((hit.distance - 0.2f) <= (boxCollider.bounds.size.y / 2)) {
+        if (((hit.distance - 0.2f) <= (boxCollider.bounds.size.y / 2)) && (hit.distance > 0)) {
             onPlatform = true;
             //Debug.Log("On ground"); //To Check if the Player Collides with the Ground Below
         } else {

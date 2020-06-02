@@ -13,28 +13,26 @@ public class PlayerAttack : MonoBehaviour
     public event Action<string> ChangeWeapon;
     public event Action TurnCursorOff;
 
-    public enum SecondaryWeapon
-    {
-        VINES, ROCKS
-    }
-
+    PlayerMana mana;
     Animator anim;
-    SecondaryWeapon currentWeapon;
+    Constants.SecondaryWeapon currentWeapon;
 
-    Dictionary<SecondaryWeapon, string> weaponNames = new Dictionary<SecondaryWeapon, string>();
+    Dictionary<Constants.SecondaryWeapon, string> weaponNames = new Dictionary<Constants.SecondaryWeapon, string>();
     int weaponAmount;
 
-    public SecondaryWeapon CurrentWeapon { get { return currentWeapon; } }
+    public PlayerMana Mana { get { return mana; } }
+    public Constants.SecondaryWeapon CurrentWeapon { get { return currentWeapon; } }
 
     void Start()
     {
         Cursor.visible = false;
+        mana = transform.parent.GetComponent<PlayerMana>();
         anim = transform.GetChild(0).GetComponent<Animator>();
 
-        currentWeapon = SecondaryWeapon.VINES;
-        weaponAmount = Enum.GetNames(typeof(SecondaryWeapon)).Length;
-        weaponNames[SecondaryWeapon.VINES] = "Vegetable Overgrowth";
-        weaponNames[SecondaryWeapon.ROCKS] = "Terrakinesis";
+        currentWeapon = Constants.SecondaryWeapon.VINES;
+        weaponAmount = Enum.GetNames(typeof(Constants.SecondaryWeapon)).Length;
+        weaponNames[Constants.SecondaryWeapon.VINES] = "Vegetable Overgrowth";
+        weaponNames[Constants.SecondaryWeapon.ROCKS] = "Terrakinesis";
         ChangeWeapon(weaponNames[currentWeapon]);
     }
 
@@ -55,10 +53,13 @@ public class PlayerAttack : MonoBehaviour
         {
             //Attack with Vines
             if (Input.GetMouseButtonDown(1) && hitObj.collider.gameObject.layer.Equals(Constants.Layer.SOIL) &&
-                currentWeapon == SecondaryWeapon.VINES)
+                currentWeapon == Constants.SecondaryWeapon.VINES)
             {
                 anim.SetTrigger(Constants.AnimatorTriggerString.THROW_ROCK);
-                StartCoroutine(AttackCoroutine(hitObj, 0.4f));
+
+                if ((mana == null) || (mana != null && mana.GetAttackPossibility(currentWeapon))) {
+                    StartCoroutine(AttackCoroutine(hitObj, 0.4f));
+                }
             }
         }
 
@@ -98,7 +99,7 @@ public class PlayerAttack : MonoBehaviour
         return hit;
     }
 
-    SecondaryWeapon ScrollWeaponWheel(int aWeapon, bool scrollingUp)
+    Constants.SecondaryWeapon ScrollWeaponWheel(int aWeapon, bool scrollingUp)
     {
         if (scrollingUp)
         {
@@ -118,7 +119,7 @@ public class PlayerAttack : MonoBehaviour
         }
 
         //Debug.Log(((SecondaryWeapon)aWeapon).ToString());
-        return (SecondaryWeapon)aWeapon;
+        return (Constants.SecondaryWeapon)aWeapon;
     }
 
     IEnumerator AttackCoroutine(RaycastHit hit, float secs)

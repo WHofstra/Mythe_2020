@@ -47,4 +47,9 @@ public class Constants : MonoBehaviour
         PLAYING,
         GAME_OVER
     }
+
+    public enum SecondaryWeapon
+    {
+        VINES, ROCKS
+    }
 }

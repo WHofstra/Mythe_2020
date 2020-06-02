@@ -137,7 +137,7 @@ Halo:
   m_Enabled: 1
   m_Color:
     serializedVersion: 2
-    rgba: 4284415744
+    rgba: 4280680703
   m_Size: 0.7
 --- !u!95 &7090635528123226314
 Animator:
@@ -171,3 +171,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogue: {fileID: 0}
+  _collisionObject: 0

@@ -10,6 +10,7 @@ public class RockThrow : MonoBehaviour
     [SerializeField] LayerMask layer;
     [SerializeField] PlayerAttack _player;
 
+    PlayerMana mana;
     PlayerAnimator playerAnim;
     Collider[] hitColliders;
 
@@ -17,6 +18,7 @@ public class RockThrow : MonoBehaviour
 
     void Start()
     {
+        mana = GetComponent<PlayerMana>();
         playerAnim = GetComponent<PlayerAnimator>();
         lifting = false;
     }
@@ -26,26 +28,29 @@ public class RockThrow : MonoBehaviour
         CheckInput(_player.CurrentWeapon);
     }
 
-    void CheckInput(PlayerAttack.SecondaryWeapon aWeapon)
+    void CheckInput(Constants.SecondaryWeapon aWeapon)
     {
-        if (aWeapon == PlayerAttack.SecondaryWeapon.ROCKS)
+        if (aWeapon == Constants.SecondaryWeapon.ROCKS)
         {
             if (Input.GetMouseButtonDown(1) && !lifting)
             {
-                LiftRocks();
-
                 //playerAnim.Play(Constants.AnimatorTriggerString.LIFT); //Used for Previous Models and Animator
                 playerAnim.Play(Constants.AnimatorTriggerString.THROW_ROCK);
 
-                //Debug.Log("lift");
-                StartCoroutine(SetLiftingState(lifting, 0.4f));
+                if ((mana == null) || (mana != null && mana.GetAttackPossibility(aWeapon)))
+                {
+                    LiftRocks();
+                    //Debug.Log("Lift!");
+                    StartCoroutine(SetLiftingState(lifting, 0.4f));
+                }
             }
             else if (Input.GetMouseButtonDown(1) && lifting)
             {
                 playerAnim.Play(Constants.AnimatorTriggerString.THROW_ROCK);
+                //Debug.Log("Throw!");
                 StartCoroutine(SetLiftingState(lifting, 0.4f));
             }
-
+            
             if (lifts != null)
             {
                 if (Input.GetMouseButtonDown(1) && lifting)
@@ -91,7 +96,9 @@ public class RockThrow : MonoBehaviour
 
         if (state) {
             lifting = false;
-        } else {
+        }
+        else {
+            mana.SubtractMana(Constants.SecondaryWeapon.ROCKS);
             lifting = true;
         }
     }

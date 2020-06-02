@@ -40,9 +40,12 @@ public class VineAttack : MonoBehaviour
             transform.GetChild(1).gameObject.SetActive(true);
             transform.GetChild(2).gameObject.SetActive(true);
 
-            if (vineAnimator != null)
-            {
+            if (vineAnimator != null) {
                 vineAnimator.SetTrigger(Constants.AnimatorTriggerString.VINE_ATTACK);
+            }
+
+            if (player.Mana != null) {
+                player.Mana.SubtractMana(Constants.SecondaryWeapon.VINES);
             }
 
             StartCoroutine("DisablingCoroutine");
