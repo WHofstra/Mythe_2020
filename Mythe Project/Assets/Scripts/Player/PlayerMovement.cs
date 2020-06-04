@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody rb;
     Collider boxCollider;
     PlayerAnimator anim;
+    Transform child;
 
     Vector3 dir;
     Vector3 rotation;
@@ -27,12 +28,14 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         boxCollider = GetComponent<Collider>();
         anim = GetComponent<PlayerAnimator>();
+        child = transform.GetChild(0).transform;
 
         speed = _defualtSpeed;
         currentSpeed = speed;
         arrowKeysPressed = false;
         onPlatform = false;
-        Screen.lockCursor = true;
+        //Screen.lockCursor = true;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
@@ -85,14 +88,14 @@ public class PlayerMovement : MonoBehaviour
         transform.eulerAngles = rotation;
 
         //Make Sure the Camera is the Gameobject's First Child
-        camRotation = transform.GetChild(0).transform.eulerAngles;
+        camRotation = child.eulerAngles;
 
         //Camera Rotation Boundaries
         camRotation.x -= Input.GetAxis(Constants.InputString.MOUSE_Y) * _mouseSpeed * Time.deltaTime;
         if (camRotation.x > _lookingAngle && camRotation.x < (360 - _lookingAngle)) {
             camRotation.x += Input.GetAxis(Constants.InputString.MOUSE_Y) * _mouseSpeed * Time.deltaTime * 1.5f;
         }
-        transform.GetChild(0).transform.eulerAngles = camRotation;
+        child.eulerAngles = camRotation;
 
         //Spacebar
         if (Input.GetKeyDown(KeyCode.Space) && onPlatform)

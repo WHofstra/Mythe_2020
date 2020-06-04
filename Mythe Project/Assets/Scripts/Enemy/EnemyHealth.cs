@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField]
     float health = 50;
+
+    public event Action Drop;
 
     public void Hit(int damage)
     {
@@ -14,6 +17,7 @@ public class EnemyHealth : MonoBehaviour
         if(health <= 0)
         {
             health = 0;
+            Drop();
             Destroy(gameObject);
         }
     }

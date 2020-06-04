@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/orpheus.unity
     guid: 2b15110afa45a4b46abe1659c30cf7b0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/UnderworldScene1.unity
     guid: c6791ab8f6a3ba741b2e2eeb3f4cd38d
   m_configObjects: {}
