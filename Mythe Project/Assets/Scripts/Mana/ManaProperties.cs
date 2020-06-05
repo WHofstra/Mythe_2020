@@ -31,7 +31,7 @@ public class ManaProperties : MonoBehaviour
             else if ((mana != null) && (mana.Mana >= mana.MaximumAmount))
             {
                 rb.useGravity = false;
-                objCol.enabled = false;
+                objCol.isTrigger = true;
             }
         }
     }
@@ -41,22 +41,8 @@ public class ManaProperties : MonoBehaviour
         if (col.gameObject.layer.Equals(Constants.Layer.PLAYER) &&
             col.name.Equals(Constants.ObjectName.PLAYER))
         {
-            objCol.enabled = true;
+            objCol.isTrigger = false;
             rb.useGravity = true;
-        }
-    }
-
-    void OnTriggerStay(Collider col)
-    {
-        if (col.gameObject.layer.Equals(Constants.Layer.PLAYER) &&
-            col.name.Equals(Constants.ObjectName.PLAYER))
-        {
-            if ((mana != null) && (mana.Mana < mana.MaximumAmount))
-            {
-                //Debug.Log("Gravity Active.");
-                objCol.enabled = true;
-                rb.useGravity = true;
-            }
         }
     }
 }
