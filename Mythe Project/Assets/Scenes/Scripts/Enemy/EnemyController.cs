@@ -41,7 +41,7 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            Debug.Log("too far");
+            //Debug.Log("too far");
             agent.Stop();
         }
 
