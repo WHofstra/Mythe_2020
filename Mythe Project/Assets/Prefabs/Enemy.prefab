@@ -204,5 +204,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _items:
   - {fileID: 2519729878153331695, guid: eddd236d3f65755489c195ab866ab1eb, type: 3}
-  _itemAmount: 08000000
+  _itemAmount: 05000000
   _droppingRange: 20

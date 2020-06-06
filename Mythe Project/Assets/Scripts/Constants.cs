@@ -41,6 +41,12 @@ public class Constants : MonoBehaviour
         public const string PLAYER_ATTACK = "AttackHitBox";
     }
 
+    public class ComponentNames
+    {
+        public const string HALO    = "Halo";
+        public const string ENABLED = "enabled";
+    }
+
     public enum States
     {
         HOME,

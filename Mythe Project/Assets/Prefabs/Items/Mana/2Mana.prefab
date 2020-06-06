@@ -126,6 +126,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _value: 2
+  _setAsTemporary: 1
+  _magneticForce: 2.5
 --- !u!95 &2519729878153331671
 Animator:
   serializedVersion: 3
@@ -168,7 +170,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 6
-  m_Height: 6
+  m_Radius: 16
+  m_Height: 16
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
