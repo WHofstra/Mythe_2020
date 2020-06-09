@@ -15,7 +15,7 @@ public class GameOverScript : MonoBehaviour
     {
         if(state == Constants.States.GAME_OVER)
         {
-            Screen.lockCursor = false;
+            Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0;
             Cursor.visible = true;
             screen.SetActive(true);

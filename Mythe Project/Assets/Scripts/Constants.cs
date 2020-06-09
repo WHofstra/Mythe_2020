@@ -51,6 +51,7 @@ public class Constants : MonoBehaviour
     {
         HOME,
         PLAYING,
+        PAUSE,
         GAME_OVER
     }
 
