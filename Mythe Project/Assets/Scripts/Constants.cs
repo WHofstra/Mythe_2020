@@ -12,6 +12,7 @@ public class Constants : MonoBehaviour
         public const string MOUSE_Y       = "Mouse Y";
         public const string RUN           = "Run";
         public const string WEAPON_SWITCH = "WeaponSwitch";
+        public const string SUBMIT        = "Submit";
     }
 
     public class Layer
@@ -23,6 +24,11 @@ public class Constants : MonoBehaviour
         public const int ATTACK = 12;
         public const int ROCK   = 13;
         //Layer 14 is 'Post Processing'
+    }
+
+    public class Tag
+    {
+        public const string MIDDLE = "Middle";
     }
 
     public class AnimatorTriggerString

@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: f838dde369a6ce04a8435b907f0a57e1
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: FONTSPRING DEMO - Lemongrass Script
+  fontNames:
+  - FONTSPRING DEMO - Lemongrass Script
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
