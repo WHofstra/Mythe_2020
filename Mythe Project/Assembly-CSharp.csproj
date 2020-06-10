@@ -213,6 +213,7 @@
      <Compile Include="Assets\Scripts\Dialogue\InGameDialogue.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyController.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyHealth.cs" />
+     <Compile Include="Assets\Scripts\Enemy\EnemyThrowFire.cs" />
      <Compile Include="Assets\Scripts\Enemy\PunchableObjectScript.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerAnimator.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerAttack.cs" />

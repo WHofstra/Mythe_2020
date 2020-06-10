@@ -85,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
         //Spacebar
         if (Input.GetKeyDown(KeyCode.Space) && onPlatform)
         {
-            rb.AddForce(new Vector3(0, _jumpingHeight * 50, 0));
+            rb.AddForce(new Vector3(0, _jumpingHeight *4, 0),ForceMode.Impulse);
             onPlatform = false; //To Prevent an Extra Leap in 1 Frame
         }
 

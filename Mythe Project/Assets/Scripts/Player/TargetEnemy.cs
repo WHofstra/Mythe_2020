@@ -24,7 +24,6 @@ public class TargetEnemy : MonoBehaviour
             {
                 target = null;
             }
-            Debug.Log(Vector3.Dot(target.transform.forward, transform.forward));
             Vector3 uiPos = cam.WorldToScreenPoint(target.transform.position);
             ui.transform.position = uiPos;
             float distance = Vector3.Distance(transform.position, target.transform.position);
@@ -43,7 +42,7 @@ public class TargetEnemy : MonoBehaviour
         }
         for (int i = 0; i < targets.Length; i++)
         {
-            Debug.Log(Vector3.Dot(targets[i].gameObject.transform.forward, transform.forward));
+
             if (Vector3.Distance(transform.position,targets[i].gameObject.transform.position) < smallestDistance  && Vector3.Dot(transform.forward, targets[i].gameObject.transform.forward) < -0.6f)
             {
                 smallestDistance = Vector3.Distance(transform.position, targets[i].gameObject.transform.position);
