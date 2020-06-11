@@ -35,13 +35,14 @@ public class RockBehavior : MonoBehaviour
 
     public void Shoot(Vector3 target)
     {
+        rb = GetComponent<Rigidbody>();
         shot = true;
         //Debug.Log("Shoot");
         Vector3 aim = transform.position - target;
         //Debug.Log(target);
         aim.Normalize();
-        rb.AddForce(-aim*15, ForceMode.Impulse);
-        rb.AddForce(Vector3.up*4, ForceMode.Impulse);
+        rb.AddForce(-aim*20, ForceMode.Impulse);
+        rb.AddForce(Vector3.up*2, ForceMode.Impulse);
     }
     
     public void OnTriggerEnter(Collider col)
@@ -55,6 +56,11 @@ public class RockBehavior : MonoBehaviour
 
         if (rb.velocity.magnitude < 1.0f) {
             shot = false;
+        }
+        if(col.tag == "Player")
+        {
+            if(rb.velocity.magnitude > 10)
+               col.GetComponent<PlayerHealth>().GetHit(20);
         }
         /*
         else {
