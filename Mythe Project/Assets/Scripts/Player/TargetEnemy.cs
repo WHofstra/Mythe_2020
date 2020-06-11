@@ -20,7 +20,9 @@ public class TargetEnemy : MonoBehaviour
         }
         else
         {
-            if(Vector3.Dot(target.transform.forward, transform.forward) > -0.6f)
+            Vector3 screenPoint = cam.WorldToViewportPoint(target.transform.position);
+            bool onScreen = screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
+            if (!onScreen)
             {
                 target = null;
             }
@@ -42,8 +44,9 @@ public class TargetEnemy : MonoBehaviour
         }
         for (int i = 0; i < targets.Length; i++)
         {
-
-            if (Vector3.Distance(transform.position,targets[i].gameObject.transform.position) < smallestDistance  && Vector3.Dot(transform.forward, targets[i].gameObject.transform.forward) < -0.6f)
+            Vector3 screenPoint = cam.WorldToViewportPoint(targets[i].transform.position);
+            bool onScreen = screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
+            if (Vector3.Distance(transform.position,targets[i].gameObject.transform.position) < smallestDistance  && onScreen)
             {
                 smallestDistance = Vector3.Distance(transform.position, targets[i].gameObject.transform.position);
                 target = targets[i].gameObject;
