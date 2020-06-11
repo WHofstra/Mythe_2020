@@ -11,6 +11,8 @@ public class TargetEnemy : MonoBehaviour
     Image ui;
     [SerializeField]
     Camera cam;
+    [SerializeField]
+    float size = 1;
     void Update()
     {
         FindEnemys();
@@ -29,7 +31,7 @@ public class TargetEnemy : MonoBehaviour
             Vector3 uiPos = cam.WorldToScreenPoint(target.transform.position);
             ui.transform.position = uiPos;
             float distance = Vector3.Distance(transform.position, target.transform.position);
-            ui.gameObject.transform.localScale = new Vector3(3 / distance, 3 / distance, ui.gameObject.transform.localScale.z);
+            ui.gameObject.transform.localScale = new Vector3(size / distance, size / distance, ui.gameObject.transform.localScale.z);
         }
     }
 
@@ -40,13 +42,14 @@ public class TargetEnemy : MonoBehaviour
         Collider[] targets = Physics.OverlapSphere(transform.position, 10, layer);
         if(targets.Length == 0) { 
             target = null;
-            Debug.Log("null");
+            //Debug.Log("null");
         }
+
         for (int i = 0; i < targets.Length; i++)
         {
             Vector3 screenPoint = cam.WorldToViewportPoint(targets[i].transform.position);
             bool onScreen = screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
-            if (Vector3.Distance(transform.position,targets[i].gameObject.transform.position) < smallestDistance  && onScreen)
+            if (Vector3.Distance(transform.position, targets[i].gameObject.transform.position) < smallestDistance && onScreen)
             {
                 smallestDistance = Vector3.Distance(transform.position, targets[i].gameObject.transform.position);
                 target = targets[i].gameObject;

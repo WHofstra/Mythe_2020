@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Mythe Project/Assets/Massi's part.meta
+guid: 579cc08402e672b4d81b14bb5d1eb1f8
+folderAsset: yes
+DefaultImporter:
+=======
 guid: f30b4e1bfd30d3147bae8e6e296e0d95
 PrefabImporter:
+>>>>>>> 54dbc5d1166f71ef79a4cf18061d8c7956548976:Mythe Project/Assets/Prefabs/Sphere (4).prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

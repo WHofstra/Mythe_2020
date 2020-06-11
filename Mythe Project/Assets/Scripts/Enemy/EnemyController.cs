@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
 
     PlayerHealth ph;
     PlayerAnimator playerAnim;
+    EnemyAnimator enemyAnim;
     NavMeshAgent agent;
 
     bool attackable = true;
@@ -22,6 +23,7 @@ public class EnemyController : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         ph = player.GetComponent<PlayerHealth>();
         playerAnim = player.GetComponent<PlayerAnimator>();
+        enemyAnim = transform.GetChild(0).GetComponent<EnemyAnimator>();
     }
 
     void Update()
@@ -36,19 +38,19 @@ public class EnemyController : MonoBehaviour
     {
         if(Vector3.Distance(player, enemy) < followDistance)
         {
-            agent.Resume();
+            agent.isStopped = false;
             isAttacking = false;
         }
         else
         {
             //Debug.Log("too far");
-            agent.Stop();
+            agent.isStopped = true;
         }
 
         if(Vector3.Distance(player,enemy) < 4f)
         {
             isAttacking = true;
-            agent.Stop();
+            agent.isStopped = true;
             //Debug.Log("Touch");
             if (attackable)
             {
@@ -61,6 +63,14 @@ public class EnemyController : MonoBehaviour
     {
         attackable = false;
         yield return new WaitForSeconds(1f);
+
+        enemyAnim.Play(Constants.AnimatorTriggerString.PUNCH);
+        StartCoroutine(DamagePlayer());
+    }
+
+    IEnumerator DamagePlayer()
+    {
+        yield return new WaitForSeconds(0.2666f);
         if (playerAnim != null && isAttacking)
         {
             ph.GetHit(10);

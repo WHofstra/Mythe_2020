@@ -202,6 +202,7 @@
      <Compile Include="Assets\Scenes\Massi&apos;s part\Assets\UniGLTF\UniJSON\Scripts\MsgPack\MsgPackValue.cs" />
      <Compile Include="Assets\Scenes\Massi&apos;s part\Assets\UniGLTF\UniJSON\Scripts\StringSegment.cs" />
      <Compile Include="Assets\Scenes\Massi&apos;s part\Assets\UniGLTF\UniUnlit\Scripts\Utils.cs" />
+     <Compile Include="Assets\Scripts\AnimatorScript.cs" />
      <Compile Include="Assets\Scripts\Constants.cs" />
      <Compile Include="Assets\Scripts\Dialogue\ActionDTrigger.cs" />
      <Compile Include="Assets\Scripts\Dialogue\CollisionDTrigger.cs" />
@@ -212,6 +213,7 @@
      <Compile Include="Assets\Scripts\Dialogue\DialogueTrigger.cs" />
      <Compile Include="Assets\Scripts\Dialogue\InGameDialogue.cs" />
      <Compile Include="Assets\Scripts\Dialogue\MoveUITextTo.cs" />
+     <Compile Include="Assets\Scripts\Enemy\EnemyAnimator.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyController.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyHealth.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyThrowFire.cs" />
@@ -246,6 +248,7 @@
      <Compile Include="Assets\Scripts\Vines\VineAttack.cs" />
      <Compile Include="Assets\Scripts\Vines\VineCollisions.cs" />
      <Compile Include="Assets\Scripts\Vines\VineCursor.cs" />
+     <Compile Include="Assets\Scripts\Win.cs" />
      <None Include="Assets\Scenes\Massi&apos;s part\Assets\Samples\Terrain Tools\0.1.0-preview\Terrain Assets\ThirdPartyNotices.txt" />
      <None Include="Assets\Scenes\Massi&apos;s part\Assets\UniGLTF\Resources\Shaders\NormalMapDecoder.shader" />
      <None Include="Assets\Materials\Grass\Grass Shader\Shaders\CustomTessellation.cginc" />
