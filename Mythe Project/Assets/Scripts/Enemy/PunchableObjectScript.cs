@@ -20,7 +20,7 @@ public class PunchableObjectScript : MonoBehaviour
 
     public void Punch(Vector3 force)
     {
-        StartCoroutine(PunchCoroutine(force, 10, 0.4333f));
+        StartCoroutine(PunchCoroutine(force, 10,0));
     }
 
     public void VineHit(Vector3 force)
@@ -29,7 +29,7 @@ public class PunchableObjectScript : MonoBehaviour
         {
             if (inAir)
             {
-                enemyHealth.Hit(10);
+                enemyHealth.Hit(20);
             }
 
             inAir = false;

@@ -41,14 +41,14 @@ public class RockThrow : MonoBehaviour
                 {
                     LiftRocks();
                     //Debug.Log("Lift!");
-                    StartCoroutine(SetLiftingState(lifting, 0.4f));
+                    StartCoroutine(SetLiftingState(lifting, 0));
                 }
             }
             else if (Input.GetMouseButtonDown(1) && lifting)
             {
                 playerAnim.Play(Constants.AnimatorTriggerString.THROW_ROCK);
                 //Debug.Log("Throw!");
-                StartCoroutine(SetLiftingState(lifting, 0.4f));
+                StartCoroutine(SetLiftingState(lifting, 0));
             }
             
             if (lifts != null)
@@ -56,11 +56,11 @@ public class RockThrow : MonoBehaviour
                 if (Input.GetMouseButtonDown(1) && lifting)
                 {
                     GetRayFront(Constants.Layer.PLAYER);
-                    StartCoroutine(Shoot(0.4f));
+                    StartCoroutine(Shoot(0));
                 }
                 else if (!Input.GetMouseButtonDown(1))
                 {
-                    StartCoroutine(Lift(0.4f));
+                    StartCoroutine(Lift(0));
                 }
             }
         }
@@ -71,8 +71,12 @@ public class RockThrow : MonoBehaviour
         hitColliders = Physics.OverlapSphere(transform.position, 10,layer);
         for(int i = 0; i < hitColliders.Length; i++)
         {
-            //Debug.Log(hitColliders[i].name);
+            Debug.Log(hitColliders[i].name);
             hitColliders[i].gameObject.GetComponent<RockBehavior>().AddToAction(GetComponent<RockThrow>());
+        }
+        if(hitColliders == null)
+        {
+            lifting = false;
         }
     }
 

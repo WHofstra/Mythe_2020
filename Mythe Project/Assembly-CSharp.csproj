@@ -224,6 +224,7 @@
     <Compile Include="Assets\Scripts\Enemy\EnemyAnimator.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyController.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyHealth.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyThrowFire.cs" />
     <Compile Include="Assets\Scripts\Enemy\ItemDrop.cs" />
     <Compile Include="Assets\Scripts\Enemy\PunchableObjectScript.cs" />
     <Compile Include="Assets\Scripts\Mana\ManaProperties.cs" />
@@ -234,7 +235,9 @@
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerPunchArea.cs" />
     <Compile Include="Assets\Scripts\Player\RockThrow.cs" />
+    <Compile Include="Assets\Scripts\Player\TargetEnemy.cs" />
     <Compile Include="Assets\Scripts\Rock\RockBehavior.cs" />
+    <Compile Include="Assets\Scripts\SceneTranstion.cs" />
     <Compile Include="Assets\Scripts\StateMachine.cs" />
     <Compile Include="Assets\Scripts\TreeSpawner.cs" />
     <Compile Include="Assets\Scripts\UI\FallInTunnel.cs" />
