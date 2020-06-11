@@ -39,6 +39,7 @@ public class Constants : MonoBehaviour
         public const string LIFT        = "Lift";
         public const string THROW_ROCK  = "Throw_Rocks";
         public const string RUNNING     = "Running";
+        public const string WALKING     = "Walking";
     }
 
     public class ObjectName

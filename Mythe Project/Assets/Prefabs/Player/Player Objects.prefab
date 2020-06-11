@@ -134,7 +134,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   ui: {fileID: 0}
-  cam: {fileID: 0}
+  cam: {fileID: 2963540533001875483}
+  size: 1
 --- !u!114 &2712024263762942165
 MonoBehaviour:
   m_ObjectHideFlags: 0

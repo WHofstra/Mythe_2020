@@ -39,24 +39,30 @@ public class EnemyController : MonoBehaviour
         if(Vector3.Distance(player, enemy) < followDistance)
         {
             agent.isStopped = false;
-            isAttacking = false;
+            StopMoving(false);
         }
         else
         {
             //Debug.Log("too far");
-            agent.isStopped = true;
+            StopMoving(true);
         }
 
         if(Vector3.Distance(player,enemy) < 4f)
         {
             isAttacking = true;
-            agent.isStopped = true;
+            StopMoving(true);
             //Debug.Log("Touch");
             if (attackable)
             {
                 StartCoroutine(Attack());
             }
         }
+    }
+
+    void StopMoving(bool setTo)
+    {
+        agent.isStopped = setTo;
+        enemyAnim.SetBoolTo(Constants.AnimatorTriggerString.WALKING, !setTo);
     }
 
     IEnumerator Attack()
