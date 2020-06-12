@@ -45,7 +45,7 @@ Deze game is gebaseerd op een oud Grieks legende over Orpheus en zijn tocht om z
    [GameDesignDoc]: <https://github.com/WHofstra/Mythe_2020/blob/master/producten/GameDesignDoc.pdf>
    [RetrospectiveVerslagen]: <https://github.com/WHofstra/Mythe_2020/blob/master/producten/RetrospectiveVerslagen.pdf>
    [ReviewVerslagen]: <https://github.com/WHofstra/Mythe_2020/blob/master/producten/ReviewVerslagen.pdf>
-   [Prototype]: <https://www.mijnmytheprototype.nl>
-   [Folder op teams]: <https://www.linknaarmijnfolderopteams.nl>
+   [Prototype]: <https://drive.google.com/file/d/1epDzUlWXRIdDdeVLWrUjxlLax0a1I2-L/view>
+   [Folder op teams]: <https://mediacollegeamsterdam.sharepoint.com/teams/MytheGDGA1920-Team12/Gedeelde%20documenten/Team%2012/DailyStandup%20Bestanden>
    [AssetPlanning]: <https://github.com/WHofstra/Mythe_2020/blob/master/producten/AssetPlanning.pdf>
    
