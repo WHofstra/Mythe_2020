@@ -9,7 +9,7 @@ public class EnemyAnimator : AnimatorScript
         anim = GetComponent<Animator>();
         
         if (anim != null) {
-            Debug.Log("Animator found.");
+            //Debug.Log("Animator found.");
         }
     }
 }

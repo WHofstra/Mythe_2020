@@ -60,7 +60,9 @@ public class PunchableObjectScript : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        if (agent != null && inAir)
+        if (agent != null && inAir &&
+          ((col.gameObject.layer.Equals(0)) ||
+           (col.gameObject.layer.Equals(Constants.Layer.SOIL))))
         {
             rb.drag = 1;
             agent.Warp(transform.position);

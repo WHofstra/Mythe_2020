@@ -6,13 +6,12 @@ using UnityEngine.UI;
 public class TargetEnemy : MonoBehaviour
 {
     [SerializeField] LayerMask layer;
+    [SerializeField] Image ui;
+    [SerializeField] Camera cam;
+    [SerializeField] float size = 1;
+
     GameObject target;
-    [SerializeField]
-    Image ui;
-    [SerializeField]
-    Camera cam;
-    [SerializeField]
-    float size = 1;
+
     void Update()
     {
         FindEnemys();
@@ -28,10 +27,13 @@ public class TargetEnemy : MonoBehaviour
             {
                 target = null;
             }
-            Vector3 uiPos = cam.WorldToScreenPoint(target.transform.position);
-            ui.transform.position = uiPos;
-            float distance = Vector3.Distance(transform.position, target.transform.position);
-            ui.gameObject.transform.localScale = new Vector3(size / distance, size / distance, ui.gameObject.transform.localScale.z);
+            else
+            {
+                Vector3 uiPos = cam.WorldToScreenPoint(target.transform.position);
+                ui.gameObject.transform.position = uiPos;
+                float distance = Vector3.Distance(transform.position, target.transform.position);
+                ui.gameObject.transform.localScale = new Vector3(size / distance, size / distance, ui.gameObject.transform.localScale.z);
+            }
         }
     }
 
