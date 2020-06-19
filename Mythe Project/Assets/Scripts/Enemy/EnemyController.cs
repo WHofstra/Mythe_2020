@@ -39,7 +39,7 @@ public class EnemyController : MonoBehaviour
         if(Vector3.Distance(player, enemy) < followDistance)
         {
             agent.isStopped = false;
-            StopMoving(false);
+            CheckForVelocity(agent.velocity.magnitude);
         }
         else
         {
@@ -65,6 +65,16 @@ public class EnemyController : MonoBehaviour
         enemyAnim.SetBoolTo(Constants.AnimatorTriggerString.WALKING, !setTo);
     }
 
+    void CheckForVelocity(float velocity)
+    {
+        if (velocity > 0) {
+            enemyAnim.SetBoolTo(Constants.AnimatorTriggerString.WALKING, true);
+        }
+        else {
+            enemyAnim.SetBoolTo(Constants.AnimatorTriggerString.WALKING, false);
+        }
+    }
+
     IEnumerator Attack()
     {
         attackable = false;
@@ -77,7 +87,8 @@ public class EnemyController : MonoBehaviour
     IEnumerator DamagePlayer()
     {
         yield return new WaitForSeconds(0.2666f);
-        if (playerAnim != null && isAttacking)
+        if (playerAnim != null && isAttacking &&
+           (Vector3.Distance(player.transform.position, transform.position) < 4f))
         {
             ph.GetHit(10);
             playerAnim.Play(Constants.AnimatorTriggerString.HIT);
