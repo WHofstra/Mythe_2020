@@ -29,15 +29,15 @@ public class PlayerPunchArea : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && targeter != null)
         {
             GameObject target = targeter.GetTarget();
-            if(target != null)
+            if (target != null)
             {
                 transform.LookAt(new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z));
                 Vector3 dir = target.transform.position - transform.position;
                 dir.Normalize();
-                transform.position = target.transform.position - dir*3;
+                transform.position = target.transform.position - dir * 3;
                 target.GetComponent<PunchableObjectScript>().Punch(dir * _strength);
             }
         }

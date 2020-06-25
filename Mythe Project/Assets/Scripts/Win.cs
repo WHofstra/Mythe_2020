@@ -1,13 +1,17 @@
 ﻿
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Win : MonoBehaviour
 {
+    [SerializeField] string _goToScene;
+
     void OnTriggerEnter(Collider col)
     {
-        if(col.tag == "Player")
+        if(col.tag.Equals(Constants.ObjectName.PLAYER) &&
+           col.gameObject.layer.Equals(Constants.Layer.PLAYER))
         {
-            Application.LoadLevel("MainMenu");
+            SceneManager.LoadScene(_goToScene);
         }
     }
 }
