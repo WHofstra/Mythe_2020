@@ -13,6 +13,7 @@ public class DialogueDisplay : MonoBehaviour
     DialogueSystem system;
     Image image;
     Text text;
+    Text monologuingName;
 
     //Vector3 arrowOrigin;
     //Vector3 arrowOffset;
@@ -24,6 +25,7 @@ public class DialogueDisplay : MonoBehaviour
         //arrow = transform.GetChild(0).GetComponent<RectTransform>();
         image = transform.GetChild(1).GetComponent<Image>();
         text = transform.GetChild(2).GetComponent<Text>();
+        monologuingName = transform.GetChild(2).GetChild(0).GetComponent<Text>();
 
         if (system != null)
         {
@@ -31,6 +33,7 @@ public class DialogueDisplay : MonoBehaviour
             system.ChangeImage += ChangeImage;
             system.EndImage += ImageEnd;
             system.ChangeText += ChangeText;
+            system.ChangeName += ChangeName;
         }
 
         /*
@@ -52,6 +55,11 @@ public class DialogueDisplay : MonoBehaviour
     void ChangeText(string aString)
     {
         text.text = aString;
+    }
+
+    void ChangeName(string aString)
+    {
+        monologuingName.text = aString;
     }
 
     /*

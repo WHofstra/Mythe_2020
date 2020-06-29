@@ -10,6 +10,7 @@ public class DialogueSystem : MonoBehaviour
     public event Action EndImage;
     public event Action<Sprite> ChangeImage;
     public event Action<string> ChangeText;
+    public event Action<string> ChangeName;
 
     IEnumerator[] playingCoroutine = new IEnumerator[2];
     int triggerTurn;
@@ -40,10 +41,21 @@ public class DialogueSystem : MonoBehaviour
             }
         }
 
-        playingCoroutine[0] = WaitForNextDialogue(aScene);
+        if (aScene.GetNames().Length >= 1) {
+            playingCoroutine[0] = WaitForNextDialogue(aScene, true);
+        }
+        else {
+            playingCoroutine[0] = WaitForNextDialogue(aScene, false);
+        }
 
-        if (aScene.Sentences.Length > 0) {
+        if (aScene.Sentences.Length > 0)
+        {
             ChangeText(aScene.Sentences[0]);
+
+            if (aScene.GetNames().Length >= 1) {
+                ChangeName(aScene.GetNames()[0]);
+            }
+
             StartCoroutine(playingCoroutine[0]);
         }
 
@@ -78,37 +90,44 @@ public class DialogueSystem : MonoBehaviour
         Debug.Log(aTrigger.gameObject.name + "'s Loop: " + aTrigger.Dialogue.GetLoop());
     }
 
-    IEnumerator WaitForNextDialogue(DialogueScene scene)
+    IEnumerator WaitForNextDialogue(DialogueScene scene, bool addName)
     {
         if (scene.SentDuration.Length >= (scene.Sentences.Length - 1))
         {
             for (int i = 1; i < scene.Sentences.Length; i++) {
                 yield return new WaitForSeconds(scene.SentDuration[i - 1]);
+
                 ChangeText(scene.Sentences[i]);
+                if (addName) {
+                    ChangeName(scene.GetNames()[i]);
+                }
             }
         } else {
             for (int i = 1; i < scene.Sentences.Length; i++) {
                 yield return new WaitForSeconds(scene.SentDuration[0]);
+
                 ChangeText(scene.Sentences[i]);
+                if (addName) {
+                    ChangeName(scene.GetNames()[i]);
+                }
             }
         }
 
         yield return new WaitForSeconds(scene.SentDuration[scene.SentDuration.Length - 1]);
         ChangeText("");
+        ChangeName("");
     }
 
     IEnumerator WaitForNextImage(Cutscene scene)
     {
         if (scene.ImgDuration.Length >= (scene.Images.Length - 1))
         {
-            for (int i = 1; i < scene.Images.Length; i++)
-            {
+            for (int i = 1; i < scene.Images.Length; i++) {
                 yield return new WaitForSeconds(scene.ImgDuration[i - 1]);
                 ChangeImage(scene.Images[i]);
             }
         }
-        else
-        {
+        else {
             for (int i = 1; i < scene.Images.Length; i++)
             {
                 yield return new WaitForSeconds(scene.ImgDuration[0]);

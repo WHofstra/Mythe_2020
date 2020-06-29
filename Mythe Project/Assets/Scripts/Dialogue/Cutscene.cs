@@ -5,6 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Scene", menuName = "Cutscene")]
 public class Cutscene : DialogueScene
 {
+    [SerializeField] protected string[] _namePerSentence;
+    public string[] NamePerSentence { get { return _namePerSentence; } }
+
     [SerializeField] protected Sprite[] _images;
     public Sprite[] Images { get { return _images; } }
 
@@ -13,4 +16,9 @@ public class Cutscene : DialogueScene
 
     [SerializeField] protected float _imageFadeDuration;
     public float FadeDuration { get { return _imageFadeDuration; } }
+
+    public override string[] GetNames()
+    {
+        return _namePerSentence;
+    }
 }

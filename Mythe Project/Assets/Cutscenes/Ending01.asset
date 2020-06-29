@@ -36,10 +36,21 @@ MonoBehaviour:
   - 4
   - 5
   - 3.5
+  _namePerSentence:
+  - Hades
+  - Orpheus
+  - Hades
+  - Orpheus
+  - Hades
+  - 
+  - Hades
+  - Hades
+  - Orpheus
+  - Hades
   _images:
   - {fileID: 21300000, guid: 6b865650630b8694caec8b46c6e7ad26, type: 3}
   - {fileID: 21300000, guid: 2f2b94153bac8954cb4aef620d5ab6f4, type: 3}
   _imageDuration:
   - 26
-  - 13.5
+  - 13.25
   _imageFadeDuration: 0

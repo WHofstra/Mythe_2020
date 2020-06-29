@@ -23,6 +23,11 @@ public class DialogueScene : ScriptableObject
         return 0f;
     }
 
+    public virtual string[] GetNames()
+    {
+        return null;
+    }
+
     public float GetDuration(int durationArrayLength, int sentArrayLength, float total)
     {
         if (durationArrayLength >= (sentArrayLength - 1))
