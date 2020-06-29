@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6934974c94bc445458f066663b686915, type: 3}
+  m_Name: Ending01
+  m_EditorClassIdentifier: 
+  _sentences:
+  - Why did you come here, mortal?
+  - I came here to ask for a favor.
+  - And what might that be?
+  - The return of my wife, Eurydice, to the mortal realm.
+  - What do you have to offer?
+  - Orpheus starts to play a tune on his lyre in order to convince Hades to release
+    Eurydice.
+  - If you truly love her, you do not look her in the eyes...
+  - ...not until you reach the mortal realm.
+  - If that is what it takes to be with Eurydice again, so be it.
+  - Godspeed, mortal.
+  _typeOutSentence: 0
+  _sentenceDuration:
+  - 4
+  - 3.5
+  - 4
+  - 4
+  - 4.5
+  - 6
+  - 4
+  - 4
+  - 5
+  - 3.5
+  _images:
+  - {fileID: 21300000, guid: 6b865650630b8694caec8b46c6e7ad26, type: 3}
+  - {fileID: 21300000, guid: 2f2b94153bac8954cb4aef620d5ab6f4, type: 3}
+  _imageDuration:
+  - 26
+  - 13.5
+  _imageFadeDuration: 0

@@ -16,6 +16,7 @@ public class ActionDTrigger : DialogueTrigger
         base.Start();
 
         if (_action == ActionKind.EXISTING) {
+            //Debug.Log(gameObject.name + ":" + TotalDuration);
             StartCoroutine(WaitTillEnd(totalDuration));
         }
     }

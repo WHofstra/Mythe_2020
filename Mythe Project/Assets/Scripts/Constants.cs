@@ -54,6 +54,11 @@ public class Constants : MonoBehaviour
         public const string ENABLED = "enabled";
     }
 
+    public class ClassType
+    {
+        public const string CUTSCENE = "Cutscene";
+    }
+
     public enum States
     {
         HOME,

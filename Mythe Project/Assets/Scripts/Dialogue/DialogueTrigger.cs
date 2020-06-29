@@ -12,12 +12,16 @@ public class DialogueTrigger : MonoBehaviour
     public event Action NextTrigger;
 
     protected float totalDuration;
+    public float TotalDuration { get { return totalDuration; } }
 
-    protected virtual void Start()
+    protected void Awake()
     {
         totalDuration = GetSecondsToWait() +
         _dialogue.GetDuration(_dialogue.SentDuration.Length, _dialogue.Sentences.Length, 0.0f);
+    }
 
+    protected virtual void Start()
+    {
         //Checking if this is the only GameObject that's active...
         //Debug.Log(gameObject.name + " started its sequence.");
 

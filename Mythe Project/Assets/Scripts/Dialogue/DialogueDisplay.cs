@@ -29,17 +29,24 @@ public class DialogueDisplay : MonoBehaviour
         {
             system = system.GetComponent<DialogueSystem>();
             system.ChangeImage += ChangeImage;
+            system.EndImage += ImageEnd;
             system.ChangeText += ChangeText;
         }
 
-        //arrowOrigin = new Vector3(0, 0, 0);
-        //arrowOffset = new Vector3(600, 400, 0);
-        //arrowOffset = (arrowOffset / arrowOffset.magnitude) * _offsetMagnitude;
+        /*
+        arrowOrigin = new Vector3(0, 0, 0);
+        arrowOffset = new Vector3(600, 400, 0);
+        arrowOffset = (arrowOffset / arrowOffset.magnitude) * _offsetMagnitude;//*/
     }
 
     void ChangeImage(Sprite anImage)
     {
         image.sprite = anImage;
+    }
+
+    void ImageEnd()
+    {
+        image.enabled = false;
     }
 
     void ChangeText(string aString)
