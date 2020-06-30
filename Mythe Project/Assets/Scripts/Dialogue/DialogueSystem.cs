@@ -41,7 +41,7 @@ public class DialogueSystem : MonoBehaviour
             }
         }
 
-        if (aScene.GetNames().Length >= 1) {
+        if (aScene.GetNames() != null && aScene.GetNames().Length >= 1) {
             playingCoroutine[0] = WaitForNextDialogue(aScene, true);
         }
         else {
@@ -52,7 +52,7 @@ public class DialogueSystem : MonoBehaviour
         {
             ChangeText(aScene.Sentences[0]);
 
-            if (aScene.GetNames().Length >= 1) {
+            if (aScene.GetNames() != null && aScene.GetNames().Length >= 1) {
                 ChangeName(aScene.GetNames()[0]);
             }
 

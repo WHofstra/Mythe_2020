@@ -25,7 +25,10 @@ public class DialogueDisplay : MonoBehaviour
         //arrow = transform.GetChild(0).GetComponent<RectTransform>();
         image = transform.GetChild(1).GetComponent<Image>();
         text = transform.GetChild(2).GetComponent<Text>();
-        monologuingName = transform.GetChild(2).GetChild(0).GetComponent<Text>();
+
+        if (transform.GetChild(2).GetChild(0) != null) {
+            monologuingName = transform.GetChild(2).GetChild(0).GetComponent<Text>();
+        }
 
         if (system != null)
         {
