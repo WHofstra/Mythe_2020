@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 424009935641127979}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Big Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,6 +131,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: stylized rocks big platform no triangulate
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 66c99f1a2bb5e794bae2b7241f943bb1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534866581884222612, guid: 66c99f1a2bb5e794bae2b7241f943bb1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66c99f1a2bb5e794bae2b7241f943bb1, type: 3}
