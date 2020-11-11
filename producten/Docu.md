@@ -6,6 +6,6 @@
     <p>Eerst moest ik een sin golf maken om de vertices omhoog en omlaag te golven.<br>
         Dit heb ik gedaan met deze formule<br></p>
     <img src="https://www.onlinemathlearning.com/image-files/equation-sine-graph.png"><br>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/ComplexSinInATimeAxe.gif">
+    <img src="https://media0.giphy.com/media/F5rQlfTXqCJ8c/giphy.gif">
     </div>
    </div>
