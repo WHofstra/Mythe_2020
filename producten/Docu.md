@@ -9,6 +9,8 @@
     <img src="https://media0.giphy.com/media/F5rQlfTXqCJ8c/giphy.gif">
     <p>In de code transform ik een vertex naar de goede positie in de sin wave met deze functie:</p>
     <img src="https://raw.githubusercontent.com/WHofstra/Mythe_2020/Pelle/producten/CodeSnipedWaterShaderSinWaveFunc.PNG">
-    <p>Omdat ik de x pos vermenigvuldig met de game tijd gaat de goelf gelijdelijk naar voren.</p>
+    <p>Omdat ik de x pos vermenigvuldig met de game tijd gaat de goelf gelijdelijk naar voren.<br>
+        Je moet nu de normals ook opnieuw berekenen. Dat doe je zo:</p>
+    </p>
     </div>
    </div>
