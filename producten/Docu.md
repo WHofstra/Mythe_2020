@@ -7,5 +7,7 @@
         Dit heb ik gedaan met deze formule<br></p>
     <img src="https://www.onlinemathlearning.com/image-files/equation-sine-graph.png"><br>
     <img src="https://media0.giphy.com/media/F5rQlfTXqCJ8c/giphy.gif">
+    <p>In de code transform ik een vertex naar de goede positie in de sin wave met deze functie:</p>
+    
     </div>
    </div>
