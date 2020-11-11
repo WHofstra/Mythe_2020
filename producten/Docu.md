@@ -5,7 +5,7 @@
     <h2>De Sin golf</h2>
     <p>Eerst moest ik een sin golf maken om de vertices omhoog en omlaag te golven.<br>
         Dit heb ik gedaan met deze formule<br></p>
-    <img src="https://www.onlinemathlearning.com/image-files/equation-sine-graph.png">
+    <img src="https://www.onlinemathlearning.com/image-files/equation-sine-graph.png"><br>
     <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/ComplexSinInATimeAxe.gif">
     </div>
    </div>
