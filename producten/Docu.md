@@ -11,6 +11,7 @@
     <img src="https://raw.githubusercontent.com/WHofstra/Mythe_2020/Pelle/producten/CodeSnipedWaterShaderSinWaveFunc.PNG">
     <p>Omdat ik de x pos vermenigvuldig met de game tijd gaat de goelf gelijdelijk naar voren.<br>
         Je moet nu de normals ook opnieuw berekenen. Dat doe je zo:</p>
+    <img src="https://raw.githubusercontent.com/WHofstra/Mythe_2020/Pelle/producten/CodeSnipedWaterShaderSinWaveFuncNormalsCalc.PNG">
     </p>
     </div>
    </div>
