@@ -8,6 +8,6 @@
     <img src="https://www.onlinemathlearning.com/image-files/equation-sine-graph.png"><br>
     <img src="https://media0.giphy.com/media/F5rQlfTXqCJ8c/giphy.gif">
     <p>In de code transform ik een vertex naar de goede positie in de sin wave met deze functie:</p>
-    
+    <img src="https://raw.githubusercontent.com/WHofstra/Mythe_2020/Pelle/producten/CodeSnipedWaterShaderSinWaveFunc.PNG">
     </div>
    </div>
